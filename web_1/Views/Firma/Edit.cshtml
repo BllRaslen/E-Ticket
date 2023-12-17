@@ -1,0 +1,51 @@
+﻿@model EfCore2C.Models.Firma
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-action="Edit" method="post">
+                    <div class="form-outline mb-4">
+                        <pr></pr>
+                        <pr></pr>
+                        <pr></pr>
+
+                    </div>
+
+
+                     <div class="form-outline mb-4">
+                        <input asp-for="firma_id" readonly placeholder="Geçerli bir şifre girin" class="form-control" type="text" />
+                        <label asp-for="firma_id"  for="form3Example3">firma_id</label>
+                        <span asp-validation-for="firma_id"  class="text-danger"></span>
+                    </div> 
+                    <div class="form-outline mb-4">
+                        <input asp-for="firma_adi" placeholder="Geçerli bir e-posta adresi girin" class="form-control" type="text" />
+                        <label asp-for="firma_adi" for="form3Example3">firma_adi</label>
+                        <span asp-validation-for="firma_adi" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between align-items-center">
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" />
+                        </div>
+                    </div>
+                    <div>
+                        <a asp-action="List">Back to List</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - H61BSessionCokkies</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/H61BSessionCokkies.styles.css" asp-append-version="true" />
+    <!-- Add this in the head section of your HTML document -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-rbs5K9YbToB9aVorwFkgZz3eFefxI9Cii+y2EG0VJG8C4wE+3Z4W+EfcK9M4NQ"
+          crossorigin="anonymous">
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">E-Ticket </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="https://localhost:7250/Admin/Home">Ana Sayıfa</a>
+              </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://localhost:7250/Sefer/List" tabindex="-1" aria-disabled="true">Sefer</a>
+                        </li>
+              <li class="nav-item">
+                            <a class="nav-link" href="https://localhost:7250/Firma/List">Firma</a>
+              </li>
+      
+              <li class="nav-item">
+                            <a class="nav-link " href="https://localhost:7250/Sehir/List" tabindex="-1" aria-disabled="true">Şehir</a>
+              </li
+              
+              <li class="nav-item">
+                            <a class="nav-link " href="https://localhost:7250/Havalimani/List" tabindex="-1" aria-disabled="true">Havalimani</a>
+              </li
+                            <li class="nav-item">
+                            <a class="nav-link " href="https://localhost:7250/Rezervarsyon/List" tabindex="-1" aria-disabled="true">Rezervarsyon</a>
+              </li
+
+
+            </ul>
+          
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - H61BSessionCokkies - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <!-- Add this before the closing body tag -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-M50lTJ3YqN3w0Rt1ld9/I12pOhjOoqU78h8zFiwQ8H+rs3vHgViCJwGXyUjjI9fW"
+            crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

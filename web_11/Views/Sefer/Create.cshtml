@@ -1,0 +1,121 @@
+﻿@using web_1.ViewModels
+@model SeferModels
+
+
+
+@{
+    Layout = "_AdminLayout";
+
+
+}
+
+<h1>Create</h1>
+
+<h4>Sefer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="SeferModel.kalkis_saati" class="control-label"></label>
+                <input asp-for="SeferModel.kalkis_saati" type="text" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="SeferModel.kalkis_saati" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SeferModel.varis_saati" class="control-label"></label>
+                <input asp-for="SeferModel.varis_saati" type="text" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="SeferModel.kalkis_saati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeferModel.sefer_fiati" class="control-label"></label>
+                <input asp-for="SeferModel.sefer_fiati" class="form-control" />
+                <span asp-validation-for="SeferModel.sefer_fiati" class="text-danger"></span>
+            </div>
+
+
+            <label for="select-departure-airport" class="form-label" >Departure Airport</label>
+            <select id="select-departure-airport2" name="SeferModel.kalkis_havalimani_id" class="form-select" aria-label="Departure Airport">
+                <option value="">Select an Airport...</option>
+                @foreach (var havalimani in Model.HavalimaniModels)
+                {
+                    <option value="@havalimani.havalimani_id">@havalimani.havalimani_adi</option>
+                }
+            </select>
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.SeferModel.kalkis_havalimani_id)</span>
+
+
+
+            <label for="select-departure-airport" class="form-label">Departure Airport</label>
+            <select id="select-departure-airport" name="SeferModel.varis_havalimani_id" class="form-select" aria-label="Departure Airport">
+                <option value="">Select an Airport...</option>
+                @foreach (var havalimani in Model.HavalimaniModels)
+                {
+                    <option value="@havalimani.havalimani_id">@havalimani.havalimani_adi</option>
+                }
+            </select>
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.SeferModel.kalkis_havalimani_id)</span>
+
+
+
+            <div class="form-group">
+                <label asp-for="SeferModel.firma_id" class="control-label"></label>
+                <input asp-for="SeferModel.firma_id" class="form-control" />
+                <span asp-validation-for="SeferModel.firma_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section scripts{
+    <script>
+
+
+
+
+        $(document).ready(function () {
+            $('#select-departure-airport').selectize();
+            $('#select-departure-airport2').selectize();
+       
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var kalkisSaatiInput = document.getElementById('kalkisSaatiInput');
+
+            // Add an event listener for input changes
+            kalkisSaatiInput.addEventListener('input', function () {
+                // Parse the input value as a date
+                var inputDate = new Date(kalkisSaatiInput.value);
+
+                // Check if the input is a valid date
+                if (!isNaN(inputDate.getTime())) {
+                    // Format the date as MM/dd/yy H:mm
+                    var formattedDate = inputDate.toLocaleDateString('en-US', {
+                        year: '2-digit',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: false  // Use 24-hour format
+                    });
+
+                    // Set the formatted value back to the input
+                    kalkisSaatiInput.value = formattedDate;
+                }
+            });
+        });
+    </script>
+                        }

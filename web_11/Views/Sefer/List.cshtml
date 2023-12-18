@@ -1,0 +1,82 @@
+﻿@model IEnumerable<EfCore2C.Models.Sefer>
+
+@{
+        Layout = "_AdminLayout";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sefer_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalkis_saati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.varis_saati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sefer_fiati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalkis_havalimani_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.varis_havalimani_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.firma_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sefer_id)
+            </td>
+               @*  <td>
+                    @{
+                        string substringToShow = item.kalkis_saati.Substring(0, 16);
+                        @substringToShow.Replace("T"," ")
+                    }
+                </td>
+                <td>
+                    @{
+                        string substringToShow1 = item.varis_saati.Substring(0,16);
+                        @substringToShow1.Replace("T"," ")
+                    }
+                </td>  *@
+
+            <td>
+                @Html.DisplayFor(modelItem => item.sefer_fiati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kalkis_havalimani_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.varis_havalimani_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firma_id)
+            </td>
+       <div class="btn-group" role="group" aria-label="Action Buttons">
+                <td>
+                    <div class="btn-group" role="group" aria-label="Action Buttons">
+                        <a asp-action="Edit" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Düzenle</a>
+                        <a asp-action="Details" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Detaylar</a>
+                        <a asp-action="Delete" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Sil</a>
+                    </div>
+
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

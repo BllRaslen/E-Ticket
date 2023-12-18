@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EfCore2C.Models.Sehir>
+
+@{
+    Layout = "_AdminLayout";
+}
+@if (TempData["basarli_sehir_create"] is not null)
+{
+    <div class="alert alert-success">@TempData["basarli_sehir_create"]</div>
+}
+@if (TempData["basarli_sehir_edit"] is not null)
+{
+    <div class="alert alert-success">@TempData["basarli_sehir_edit"]</div>
+}
+@if (TempData["basarli_sehir_delete"] is not null)
+{
+    <div class="alert alert-danger">@TempData["basarli_sehir_delete"]</div>
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sehir_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sehir_adi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sehir_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sehir_adi)
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Action Buttons">
+                        <a asp-action="Edit" asp-route-id="@item.sehir_id" type="button" class="btn btn-primary">Düzenle</a>
+                        <a asp-action="Details" asp-route-id="@item.sehir_id" type="button" class="btn btn-primary">Detaylar</a>
+                        <a asp-action="Delete" asp-route-id="@item.sehir_id" type="button" class="btn btn-primary">Sil</a>
+                    </div>
+                 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model EfCore2C.Models.Sehir
+
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Sehir</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Sehir" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="sehir_id" class="control-label"></label>
+                <input asp-for="sehir_id" class="form-control" />
+                <span asp-validation-for="sehir_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sehir_adi" class="control-label"></label>
+                <input asp-for="sehir_adi" class="form-control" />
+                <span asp-validation-for="sehir_adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

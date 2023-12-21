@@ -19,15 +19,25 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="SeferModel.kalkis_saati" class="control-label"></label>
-                <input asp-for="SeferModel.kalkis_saati" type="datetime-local" class="form-control" id="kalkisSaatiInput" />
-                <span asp-validation-for="SeferModel.kalkis_saati" class="text-danger"></span>
+                <label asp-for="SeferModel.kalkis_tarihi" class="control-label"></label>
+                <input asp-for="SeferModel.kalkis_tarihi" type="date" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="SeferModel.kalkis_tarihi" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="SeferModel.varis_saati" class="control-label"></label>
-                <input asp-for="SeferModel.varis_saati" type="datetime-local" class="form-control" id="kalkisSaatiInput" />
+                <label asp-for="SeferModel.varis_tarihi" class="control-label"></label>
+                <input asp-for="SeferModel.varis_tarihi" type="date" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="SeferModel.varis_tarihi" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SeferModel.kalkis_saati" class="control-label"></label>
+                <input asp-for="SeferModel.kalkis_saati" class="form-control" />
                 <span asp-validation-for="SeferModel.kalkis_saati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeferModel.varis_saati" class="control-label"></label>
+                <input asp-for="SeferModel.varis_saati" class="form-control" />
+                <span asp-validation-for="SeferModel.varis_saati" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SeferModel.sefer_fiati" class="control-label"></label>

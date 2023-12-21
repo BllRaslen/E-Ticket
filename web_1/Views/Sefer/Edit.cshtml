@@ -17,6 +17,18 @@
                 <input asp-for="sefer_id" readonly class="form-control" />
                 <span asp-validation-for="sefer_id" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="kalkis_tarihi" class="control-label"></label>
+                <input asp-for="kalkis_tarihi" type="date" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="kalkis_tarihi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="varis_tarihi" class="control-label"></label>
+                <input asp-for="varis_tarihi" type="date" class="form-control" id="kalkisSaatiInput" />
+                <span asp-validation-for="varis_tarihi" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="kalkis_saati" class="control-label"></label>
                 <input asp-for="kalkis_saati" class="form-control" />

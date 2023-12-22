@@ -1,0 +1,49 @@
+﻿@model EfCore2C.Models.airline.Models.Rezervasyon
+
+@{
+
+    Layout = "_AdminLayout";
+}
+
+<h1>Edit</h1>
+
+<h4>Rezervasyon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="rezervasyon_id" class="control-label"></label>
+                <input asp-for="rezervasyon_id"readonly class="form-control" />
+                <span asp-validation-for="rezervasyon_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sefer_id" class="control-label"></label>
+                <input asp-for="sefer_id" class="form-control" />
+                <span asp-validation-for="sefer_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rezervasyonTipi" class="control-label"></label>
+                <input asp-for="rezervasyonTipi" class="form-control" />
+                <span asp-validation-for="rezervasyonTipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="koltuk_sayisi" class="control-label"></label>
+                <input asp-for="koltuk_sayisi" class="form-control" />
+                <span asp-validation-for="koltuk_sayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,12 +15,12 @@ namespace web_1.Controllers
             _context = context;
         }
 
-     
+
 
 
         public IActionResult Home()
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
+            if (HttpContext.Session.GetString("SessionAdmin") is null)
             {
                 TempData["hata"] = "Lütfen Login olunuz";
                 return NotFound();
@@ -28,13 +28,13 @@ namespace web_1.Controllers
 
             return View("Home");
         }
-      
 
 
 
 
 
-      
+
+
 
 
         public IActionResult List()
@@ -52,7 +52,7 @@ namespace web_1.Controllers
         // GET: Kitap/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            
+
             if (id == null || _context.Firmas == null)
             {
                 return NotFound();

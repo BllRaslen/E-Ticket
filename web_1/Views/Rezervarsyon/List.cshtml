@@ -5,9 +5,17 @@
 }
 
 <h1>List</h1>
+@if (TempData["basarli_rezervasyon_edit"] is not null)
+{
+    <div class="alert alert-success">@TempData["basarli_rezervasyon_edit"] </div>
+}
+@if (TempData["basarli_rezervasyon_delete"] is not null)
+{
+    <div class="alert alert-danger">@TempData["basarli_rezervasyon_delete"] </div>
+}
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -43,10 +51,12 @@
                 @Html.DisplayFor(modelItem => item.koltuk_sayisi)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+                <div class="btn-group" role="group" aria-label="Action Buttons">
+                    <a asp-action="Edit" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Düzenle</a>
+                    <a asp-action="Details" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Detaylar</a>
+                    <a asp-action="Delete" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Sil</a>
+                </div>
+                </td>
         </tr>
 }
     </tbody>

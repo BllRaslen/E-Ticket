@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EfCore2C.Models.Sefer>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sefer_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalkis_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.varis_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalkis_saati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.varis_saati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sefer_fiati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kalkis_havalimani_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.varis_havalimani_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.firma_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sefer_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kalkis_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.varis_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kalkis_saati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.varis_saati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sefer_fiati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kalkis_havalimani_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.varis_havalimani_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firma_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

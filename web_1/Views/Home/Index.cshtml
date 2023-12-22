@@ -1,36 +1,55 @@
-﻿@model IEnumerable<EfCore2C.Models.Sehir>
+﻿@using web_1.ViewModels
+@model HomeModels
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GDC Airways</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Paytone+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/index.css">
+  
+    
+</head>
 
-
-
-
-
-            
-
-<section class="vh-100">
-    <div class="container-fluid h-custom">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                     class="img-fluid" alt="Sample image">
+<body >
+   
+    <!--NavBar End-->
+    <!--Heading/Moto-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="content">
+                    <h1>Your  Experience  Starts  Here!</h1>
+                </div>
             </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form asp-action="SeferBilgileri">
-                    <div class="form-outline mb-4">
-                        <pr></pr>
-                        <pr></pr>
-                        <pr></pr> 
-                   
-                    </div>
-                    <div class="text-center">
+        </div>
+    </div>
+    <!--Heading/Moto End-->
+    <!--Tabs-->
+    <div class="container" id="second">
+        <!--Tabs Headings-->
+        <ul class="nav nav-tabs">
+            <li class="active"><a class="tabshead" data-toggle="tab" href="#home"><i class="fas fa-plane"></i> Flights</a></li>
+            <li><a class="tabshead" data-toggle="tab" href="#menu1"><i class="far fa-address-book"></i> My Bookings</a></li>
+            <li><a class="tabshead" data-toggle="tab" href="#menu2"><i class="far fa-clock"></i> Flight Status</a></li>
+        </ul>
+        <!--Tabs Headings End-->
+        <!--Tabs Content-->
+        <div class="tab-content">
+            <!--Tab Content Flight-->
+            <div id="home" class="tab-pane fade in active">
+                <h3 class="lab">Flights</h3>
+                <form asp-action="Index">
+                  <label type="email" for="form3Example3">Kalkiş Noktası</label>
 
-
-
-                        <label type="email" for="form3Example3">Kalkiş Noktası</label>
-
-                        <select id="select-state" placeholder="Pick a state...">
+                    <select id="select-state" style=" width: 31%; " placeholder="Pick a state...">
                             <option value="">Select a state...</option>
-                            @foreach (var label in Model)
+                            @foreach (var label in Model.sehir)
                             {
                                 <option value="@label.sehir_id">@label.sehir_adi</option>
                             }
@@ -38,10 +57,10 @@
                         </select>
                         <label type="email" for="form3Example3">Varış Noktası</label>
 
-                        <select id="select-state2" placeholder="Pick a state...">
+                    <select id="select-state2" style=" width: 31%; " placeholder="Pick a state...">
 
                             <option value="">Select a state...</option>
-                            @foreach (var label in Model)
+                        @foreach (var label in Model.sehir)
                             {
                                 <option value="@label.sehir_id">@label.sehir_adi</option>
                             }
@@ -62,26 +81,53 @@
 
 
                         }
-                    <div class="form-outline mb-4">
-                            <label type="email" for="form3Example3">Yolculuk Tarihi</label>
-
-                        <input   class="form-control" type="datetime-local" />
-                        <span class="text-danger"></span>
-                    </div>
-
-
-
-
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                      
-                        <div class="form-group">
-                            <input type="submit" value="Giriş" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" />
-                        </div>
-                    </div>
-
+                    <input type="number" asp-for="SeferModel.firma_id" class="drop" name="passengers" step="1" min="1" max="10" placeholder="Number Of Passengers">
+                    <span class="lab">Departure:</span>
+                    <input type="date" name="depart" class="drop" id="depart">
+                    <br />
+                    <span class="lab">Return:</span>
+                    <input type="date" name="return" class="drop" id="return">
+                    < <button type="submit" name="submit" class="btn btn-primary btn-lg">Search Flight</button>
                 </form>
             </div>
+            <div id="menu1" class="tab-pane fade">
+                <h3 class="lab2">My Bookings</h3>
+                <form action="GDC-Ticket.php" method="POST">
+                    <input type="text" name="ticketno" placeholder="Ticket Number" class="drop2">
+                    <input type="text" name="lastname" placeholder="Passenger Last Name" class="drop2">
+                    <input type="submit" name="submit" id="tickButton">
+                </form>
+            </div>
+            <!--Tab Content My Bookings Ends-->
+            <!--Tab Content Flight Status-->
+            <div id="menu2" class="tab-pane fade">
+                <h3 class="lab2">Flight Status</h3>
+                <form action="GDC-FlightStatus.php" method="POST">
+                    <input type="text" name="flightid" placeholder="Flight Number" class="drop2">
+                    <select name="origin" class="drop2">
+                        .
+                        <option value="org">Origin</option>
+                        <option value="Mumbai">MUMBAI</option>
+                        <option value="Delhi">DELHI</option>
+                        <option value="Banglore">BANGLORE</option>
+                        <option value="Kolkata">KOLKATA</option>
+                    </select>
+                    <span class="lab2">Date:</span>
+                    <input type="date" name="depart" class="drop21">
+                    <input type="submit" name="submit" id="fsButton">
+                </form>
+            </div>
+            <!--Tab Content Flight Status Ends-->
+        </div>
+        <!--Tab Contents End-->
+    </div>
+ 
         </div>
     </div>
+    <!--SignUp Modal End-->
+  
     
-</section>
+    </div>
+    <!--Login Modal End-->
+</body>
+</html>

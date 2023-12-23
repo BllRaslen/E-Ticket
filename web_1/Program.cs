@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using web_1.Context;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Localization;
+using web_1;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 var app = builder.Build();
 
 

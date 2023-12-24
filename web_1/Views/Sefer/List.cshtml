@@ -1,67 +1,67 @@
 ﻿@model IEnumerable<EfCore2C.Models.Sefer>
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
-        Layout = "_AdminLayout";
+    Layout = "_AdminLayout";
 }
 
-<h1>List</h1>
+<h1>@localizer["SeferList_Title"]</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">@localizer["List_CreateNew"]</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.sefer_id)
+                @localizer["Sefer_SeferId"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.kalkis_tarihi)
+                @localizer["Sefer_KalkisTarihi"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.varis_tarihi)
+                @localizer["Sefer_VarisTarihi"]
             </th>
-       
             <th>
-                @Html.DisplayNameFor(model => model.sefer_fiati)
+                @localizer["Sefer_SeferFiyati"]
             </th>
-         
             <th>
-                @Html.DisplayNameFor(model => model.firma_id)
+                @localizer["Sefer_FirmaId"]
             </th>
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.sefer_id)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sefer_id)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.kalkis_tarihi)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.varis_tarihi)
                 </td>
-       
-
-            <td>
-                @Html.DisplayFor(modelItem => item.sefer_fiati)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.firma_id)
-            </td>
-       <div class="btn-group" role="group" aria-label="Action Buttons">
+                <td>
+                    @Html.DisplayFor(modelItem => item.sefer_fiati)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firma_id)
+                </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Action Buttons">
-                        <a asp-action="Edit" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Düzenle</a>
-                        <a asp-action="Details" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Detaylar</a>
-                        <a asp-action="Delete" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">Sil</a>
+                        <a asp-action="Edit" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">@localizer["Edit"]</a>
+                        <a asp-action="Details" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">@localizer["List_Details"]</a>
+                        <a asp-action="Delete" asp-route-id="@item.sefer_id" type="button" class="btn btn-primary">@localizer["Delete"]</a>
                     </div>
-
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>

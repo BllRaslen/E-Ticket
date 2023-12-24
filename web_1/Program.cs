@@ -5,6 +5,9 @@ using web_1.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using web_1;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,11 +22,34 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(); 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+builder.Services.AddMvc()
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(JsonStringLocalizerFactory));
+    });
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+var supportedCultures = new[]
+{
+        new CultureInfo("en-US"),
+        new CultureInfo("tr-TR")
+
+   
+    
+    };
+
+options.DefaultRequestCulture = new RequestCulture(culture: supportedCultures[0], uiCulture: supportedCultures[0]);
+options.SupportedCultures = supportedCultures;
+options.SupportedUICultures = supportedCultures;
+
+
+});
 var app = builder.Build();
-
-
 
 
 
@@ -41,6 +67,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
  
 app.UseRouting();
+var supportedCultures = new[] { "tr-TR" ,"en-US" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+app.UseRequestLocalization(localizationOptions);
+
 app.UseSession();
 
 app.UseAuthentication();;

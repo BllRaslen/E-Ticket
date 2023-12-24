@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -18,7 +22,7 @@
 </head>
 <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"style=" font-size:20px;">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">E-Ticket </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,33 +30,36 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="https://localhost:7250/Admin/Home">Ana Sayıfa</a>
+              <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page"  href="https://localhost:7250/Admin/Home">@localizer["home"]</a>
               </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="https://localhost:7250/Sefer/List" tabindex="-1" aria-disabled="true">Sefer</a>
+                            <a class="nav-link " href="https://localhost:7250/Sefer/List" tabindex="-1" aria-disabled="true">@localizer["Flights"]</a>
                         </li>
               <li class="nav-item">
-                            <a class="nav-link" href="https://localhost:7250/Firma/List">Firma</a>
-              </li>
+                            <a class="nav-link" href="https://localhost:7250/Firma/List">@localizer["company"]</a>
+              </li>  
       
               <li class="nav-item">
-                            <a class="nav-link " href="https://localhost:7250/Sehir/List" tabindex="-1" aria-disabled="true">Şehir</a>
+                            <a class="nav-link " href="https://localhost:7250/Sehir/List" tabindex="-1" aria-disabled="true">@localizer["City"]</a>
               </li
               
               <li class="nav-item">
-                            <a class="nav-link " href="https://localhost:7250/Havalimani/List" tabindex="-1" aria-disabled="true">Havalimani</a>
+                            <a class="nav-link " href="https://localhost:7250/Havalimani/List" tabindex="-1" aria-disabled="true">@localizer["Airport"]</a>
               </li
                             <li class="nav-item">
-                            <a class="nav-link " href="https://localhost:7250/Rezervarsyon/List" tabindex="-1" aria-disabled="true">Rezervarsyon</a>
+                            <a class="nav-link " href="https://localhost:7250/Rezervarsyon/List" tabindex="-1" aria-disabled="true">@localizer["Reservation"]</a>
               </li
                 <li class="nav-item">
-                            <a class="nav-link " href="https://localhost:7250/Person/Cikis" tabindex="-1" aria-disabled="true">cikis</a>
+                            <a class="nav-link " href="https://localhost:7250/Person/Cikis" tabindex="-1" aria-disabled="true">@localizer["Logout"]</a>
               </li
 
             </ul>
           
           </div>
+            <div class="p-4">
+                        <partial name="_SelectLanguage" />
+                    </div>
         </div>
       </nav>
     </header>
@@ -72,7 +79,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-    <!-- Add this before the closing body tag -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-M50lTJ3YqN3w0Rt1ld9/I12pOhjOoqU78h8zFiwQ8H+rs3vHgViCJwGXyUjjI9fW"
             crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)

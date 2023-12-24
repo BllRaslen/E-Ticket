@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<EfCore2C.Models.airline.Models.Rezervasyon>
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
     Layout = "_AdminLayout";
 }
 
-<h1>List</h1>
+
 @if (TempData["basarli_rezervasyon_edit"] is not null)
 {
     <div class="alert alert-success">@TempData["basarli_rezervasyon_edit"] </div>
@@ -13,51 +16,54 @@
 {
     <div class="alert alert-danger">@TempData["basarli_rezervasyon_delete"] </div>
 }
+<h1>@localizer["RezervasyonList_Title"]</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">@localizer["List_CreateNew"]</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.rezervasyon_id)
+                @localizer["Rezervasyon_RezervasyonId"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.sefer_id)
+                @localizer["Rezervasyon_SeferId"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.rezervasyonTipi)
+                @localizer["Rezervasyon_RezervasyonTipi"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.koltuk_sayisi)
+                @localizer["Rezervasyon_KoltukSayisi"]
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.rezervasyon_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sefer_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rezervasyonTipi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.koltuk_sayisi)
-            </td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Action Buttons">
-                    <a asp-action="Edit" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Düzenle</a>
-                    <a asp-action="Details" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Detaylar</a>
-                    <a asp-action="Delete" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">Sil</a>
-                </div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rezervasyon_id)
                 </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.sefer_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rezervasyonTipi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.koltuk_sayisi)
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Action Buttons">
+                        <a asp-action="Edit" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">@localizer["Edit"]</a>
+                        <a asp-action="Details" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">@localizer["List_Details"]</a>
+                        <a asp-action="Delete" asp-route-id="@item.rezervasyon_id" type="button" class="btn btn-primary">@localizer["Delete"]</a>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

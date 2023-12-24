@@ -1,0 +1,91 @@
+{
+  //layout
+  "welcome": "welcome uss",
+  "home": "Home",
+  "signup": "Sign up",
+  "login": "Login",
+  "Logout": "Log out",
+
+
+  //crud
+  "Edit": "Edit",
+  "Delete": "Delete",
+
+
+  //all list opriting
+  "List_CreateNew": "Create New",
+  "List_Details": "Details",
+
+  //Rezervasyon model(display name)
+  "Rezervasyon_RezervasyonId": "Reservation ID",
+  "Rezervasyon_SeferId": "Flight ID",
+  "Rezervasyon_RezervasyonTipi": "Reservation Type",
+  "Rezervasyon_KoltukSayisi": "Number of Seats",
+
+  //Havalimani model(display name)
+
+  "Havalimani_HavalimaniId": "Airport ID",
+  "Havalimani_HavalimaniAdi": "Airport Name",
+  "Havalimani_SehirId": "City ID",
+
+  //Sehir model(display name)
+  "Sehir_SehirId": "City ID",
+  "Sehir_SehirAdi": "City Name",
+
+  //firma model(display name)
+  "Firma_FirmaId": "Company ID",
+  "Firma_FirmaAdi": "Company Name",
+
+
+  //sefer model(display name)
+  "Sefer_SeferId": "Flight ID",
+  "Sefer_KalkisTarihi": "Departure Date",
+  "Sefer_VarisTarihi": "Arrival Date",
+  "Sefer_SeferFiyati": "Flight Price",
+  "Sefer_FirmaId": "Company ID",
+  "Sefer_KalkisSaati": "Departure Time",
+  "Sefer_VarisSaati": "Arrival Time",
+  "Sefer_KalkisHavalimaniId": "Departure Airport Name",
+  "Sefer_VarisHavalimaniId": "Arrival Airport Name",
+
+  //admin layout
+  "Flights": "Flights",
+  "company": "company",
+  "City": "City",
+  "Airport": "Airport",
+  "Reservation": "Reservation",
+
+
+  //firma list
+
+  "FirmaList_Title": "Company List",
+  "FirmaList_ActionButtons": "Action Buttons",
+
+
+  //sefer list
+
+  "SeferList_Title": "Flights List",
+  "SeferList_ActionButtons": "Action Buttons",
+  "SehirList_Title": "City List",
+  "SehirList_ActionButtons": "Action Buttons",
+
+  // Havalimani List
+  "HavalimaniList_Title": "Airport List",
+  "HavalimaniList_ActionButtons": "Action Buttons",
+
+
+
+
+  //RezervasyonList
+  "RezervasyonList_Title": "Reservation List",
+  "RezervasyonList_ActionButtons": "Action Buttons"
+
+
+
+
+
+
+
+
+
+}

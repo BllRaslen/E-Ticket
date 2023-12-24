@@ -1,0 +1,90 @@
+{
+  "welcome": "welcome tr",
+  "home": "ana sayfa",
+  "signup": "uye ol",
+  "login": "giriş yap",
+  "Logout": "Çikiş yap",
+
+
+  //crud
+  "Edit": "Düzenle",
+  "Delete": "Sil",
+
+  //all list opreting
+  "List_CreateNew": "Yeni Oluştur",
+
+  "List_Details": "Detaylar",
+
+  //Rezervasyon model(display name)
+  "Rezervasyon_RezervasyonId": "Rezervasyon ID",
+  "Rezervasyon_SeferId": "Uçuş ID",
+  "Rezervasyon_RezervasyonTipi": "Rezervasyon Türü",
+  "Rezervasyon_KoltukSayisi": "Koltuk Sayısı",
+
+  //Havalimani model(display name)
+  "Havalimani_HavalimaniId": "Havalimanı ID",
+  "Havalimani_HavalimaniAdi": "Havalimanı Adı",
+  "Havalimani_SehirId": "Şehir ID",
+
+  //Sehir model(display name)
+  "Sehir_SehirId": "Şehir ID",
+  "Sehir_SehirAdi": "Şehir Adı",
+
+
+  //firma model(display name)
+  "Firma_FirmaId": "Firma ID",
+  "Firma_FirmaAdi": "Firma Adı",
+
+  //sefer model(display name)
+  "Sefer_SeferId": "Uçuş ID",
+  "Sefer_KalkisTarihi": "Kalkış Tarihi",
+  "Sefer_VarisTarihi": "Varış Tarihi",
+  "Sefer_SeferFiyati": "Uçuş Fiyatı",
+  "Sefer_FirmaId": "Firma ID",
+  "Sefer_KalkisSaati": "Kalkış Saati",
+  "Sefer_VarisSaati": "Varış Saati",
+  "Sefer_KalkisHavalimaniId": "Kalkış Havalimanı Adi",
+  "Sefer_VarisHavalimaniId": "Varış Havalimanı Adi",
+
+  // admin layout
+  "Flights": "Sefer",
+  "company": "Firma",
+  "City": "Şehir",
+  "Airport": "Havalimani",
+  "Reservation": "Rezervarsyon",
+
+
+
+
+  "FirmaList_Title": "Firma Listesi",
+  "FirmaList_ActionButtons": "İşlem Düğmeleri",
+  // Add more key-value pairs as needed
+
+
+
+  "SeferList_Title": "Uçuş Listesi",
+
+  "SeferList_ActionButtons": "İşlem Düğmeleri",
+  // Add more key-value pairs as needed
+
+  "SehirList_Title": "Şehir Listesi",
+  "SehirList_ActionButtons": "İşlem Düğmeleri",
+  // Add more key-value pairs as needed
+
+
+
+
+  "HavalimaniList_Title": "Havalimanı Listesi",
+  "HavalimaniList_ActionButtons": "İşlem Düğmeleri",
+  // Add more key-value pairs as needed
+
+
+  "RezervasyonList_Title": "Rezervasyon Listesi",
+  "RezervasyonList_ActionButtons": "İşlem Düğmeleri"
+  // Add more key-value pairs as needed
+
+
+
+
+
+}

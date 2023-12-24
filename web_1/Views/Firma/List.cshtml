@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<EfCore2C.Models.Firma>
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
     Layout = "_AdminLayout";
 }
@@ -16,20 +19,20 @@
     <div class="alert alert-danger">@TempData["basarli_Firma_delete"]</div>
 }
 
-<h1>List</h1>
+<h1>@localizer["FirmaList_Title"]</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">@localizer["List_CreateNew"]</a>
 </p>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.firma_id)
+                @localizer["Firma_FirmaId"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.firma_adi)
+                @localizer["Firma_FirmaAdi"]
             </th>
             <th></th>
         </tr>
@@ -46,11 +49,11 @@
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Action Buttons">
-                        <a asp-action="Edit" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">Düzenle</a>
-                        <a asp-action="Details" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">Detaylar</a>
-                        <a asp-action="Delete" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">Sil</a>
+                        <a asp-action="Edit" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">@localizer["Edit"]</a>
+                        <a asp-action="Details" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">@localizer["List_Details"]</a>
+                        <a asp-action="Delete" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">@localizer["Delete"]</a>
+
                     </div>
-                 
                 </td>
             </tr>
         }

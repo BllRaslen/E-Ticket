@@ -1,0 +1,65 @@
+﻿@model IEnumerable<web_1.Models.Person>
+
+@{
+    ViewData["Title"] = "ListingPersons";
+}
+
+<h1>ListingPersons</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dogum_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sifre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dogum_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sifre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.person_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.person_id }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.person_id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

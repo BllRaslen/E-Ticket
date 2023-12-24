@@ -9,187 +9,183 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = web_1
 build_property.RootNamespace = web_1
-build_property.ProjectDir = C:\Users\bilal\source\repos\BllRaslen\E-Ticket\web_1\
+build_property.ProjectDir = C:\Users\bilal\Source\Repos\BllRaslen\E-Ticket\web_1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\bilal\source\repos\BllRaslen\E-Ticket\web_1
+build_property.MSBuildProjectDirectory = C:\Users\bilal\Source\Repos\BllRaslen\E-Ticket\web_1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Admin/Home.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Admin/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FnaXJQZXJzb25BcGlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FnaXJQZXJzb25BcGlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FnaXJQZXJzb25BcGlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/CagirPersonApi/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FnaXJQZXJzb25BcGlcTGlzdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/Details.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/FirmaIslemleri.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/FirmaIslemleri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcRmlybWFJc2xlbWxlcmkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Firma/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Firma/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlybWFcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF2YWxpbWFuaVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF2YWxpbWFuaVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Details.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF2YWxpbWFuaVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF2YWxpbWFuaVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Havalimani/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF2YWxpbWFuaVxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Home/Index.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Home/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Home/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Home/SeferBilgileri.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Home/SeferBilgileri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWZlckJpbGdpbGVyaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Muusteri/Home.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Muusteri/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXV1c3RlcmlcSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Person/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Person/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Person/Giris.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Person/Giris.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uXEdpcmlzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Rezervarsyon/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VmZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VmZXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Details.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VmZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sefer/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VmZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sefer/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sefer/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VmZXJcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Create.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Delete.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Details.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Edit.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/FirmaIslemleri.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/FirmaIslemleri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcRmlybWFJc2xlbWxlcmkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Sehir/List.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Sehir/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VoaXJcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Shared/Error.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Shared/_SelectLanguage.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Shared/_SelectLanguage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWxlY3RMYW5ndWFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/_ViewImports.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/_ViewStart.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bilal/source/repos/BllRaslen/E-Ticket/web_1/Views/Shared/_Layout.cshtml]
+[C:/Users/bilal/Source/Repos/BllRaslen/E-Ticket/web_1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-612tnu9ud9

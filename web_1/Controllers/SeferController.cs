@@ -6,9 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using web_1.Context;
 using web_1.Models;
 using web_1.ViewModels;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class SeferController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -25,8 +29,10 @@ namespace web_1.Controllers
 
         public IActionResult Create()
         {
+          
             List<Havalimani> havalimani = _context.Havalimanis.ToList();
-            SeferModels sfm = new SeferModels() {
+            SeferModels sfm = new SeferModels()
+            {
                 HavalimaniModels = havalimani
             };
             return View(sfm);
@@ -38,18 +44,8 @@ namespace web_1.Controllers
         public IActionResult Create(SeferModels seferViewModel)
         {
 
-            seferViewModel.SeferModel.kalkis_saati = seferViewModel.SeferModel.kalkis_saati.Substring(0, 11);
-            seferViewModel.SeferModel.varis_saati = seferViewModel.SeferModel.varis_saati.Substring(0, 15);
-
-
-
-            seferViewModel.SeferModel.kalkis_saati.Replace("T", " ");
-            seferViewModel.SeferModel.varis_saati.Replace("T", " ");
-
-
-
-            _context.Sefers.Add(seferViewModel.SeferModel);
-                _context.SaveChanges();
+  _context.Sefers.Add(seferViewModel.SeferModel);
+            _context.SaveChanges();
             HttpContext.Session.SetString("SessionSefer", seferViewModel.SeferModel.sefer_id.ToString());
 
             return RedirectToAction("Create", "Rezervarsyon");
@@ -68,16 +64,14 @@ namespace web_1.Controllers
         }
         public IActionResult List()
         {
+         
             var sefers = _context.Sefers.ToList();
             return View(sefers);
         }
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
+          
 
-                return NotFound();
-            }
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Sefers == null)
             {
@@ -104,26 +98,23 @@ namespace web_1.Controllers
             {
                 return NotFound();
             }
-            
-         
-                    // Update the Firma and save changes
-                    _context.Update(sefer);
-                    await _context.SaveChangesAsync();
-                
-          
-                TempData["basarli_Firma_edit"] = $"{sefer.sefer_id} idli sefer guncelide";
-                return RedirectToAction(nameof(List));
-          
+
+
+            // Update the Firma and save changes
+            _context.Update(sefer);
+            await _context.SaveChangesAsync();
+
+
+            TempData["basarli_Firma_edit"] = $"{sefer.sefer_id} idli sefer guncelide";
+            return RedirectToAction(nameof(List));
+
 
         }
 
         // GET: FirmaController/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+        
             // Handle cases where the ID is null
             if (id == null)
             {
@@ -160,17 +151,13 @@ namespace web_1.Controllers
             _context.Sefers.Remove(sefers);
 
             await _context.SaveChangesAsync();
-           // TempData["basarli_Firma_delete"] = $"{firma.firma_adi} adlı firma silendi";
+            // TempData["basarli_Firma_delete"] = $"{firma.firma_adi} adlı firma silendi";
             return RedirectToAction(nameof(List));
         }
         // GET: FirmaController/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-
-                return NotFound();
-            }
+          
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Sefers == null)
             {

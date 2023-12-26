@@ -7,12 +7,15 @@
     public class Havalimani
     {
         [Key]
+        [Display(Name = "Havalimani_HavalimaniId")]
         public int havalimani_id { get; set; }
+        [Display(Name = "Havalimani_HavalimaniAdi")]
         public string havalimani_adi { get; set; }
         
 
 
         [ForeignKey("Sehir")]
+        [Display(Name = "Havalimani_SehirId")]
         public int sehir_id { get; set; }
         public Sehir Sehir { get; set; }
 

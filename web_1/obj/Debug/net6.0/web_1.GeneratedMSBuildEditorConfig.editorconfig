@@ -68,8 +68,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Home/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Home/SeferBilgileri.cshtml]
@@ -90,6 +90,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Rezervarsyon/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Rezervarsyon/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Rezervarsyon/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Rezervarsyon/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV6ZXJ2YXJzeW9uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Rezervarsyon/List.cshtml]
@@ -146,6 +158,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Shared/_SelectLanguage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWxlY3RMYW5ndWFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Program Files/Git/My-Github-projects/E-Ticket/web_1/Views/Shared/_ValidationScriptsPartial.cshtml]

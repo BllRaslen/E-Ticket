@@ -9,7 +9,11 @@
     public class Firma
     {
         [Key]
+        [Display(Name = "Firma_FirmaId")]
+
         public int firma_id { get; set; }
+        [Display(Name = "Firma_FirmaAdi")]
+
 
         public string firma_adi { get; set; }
 

@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using web_1.Context;
 using web_1.Models;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FirmaController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -26,16 +29,12 @@ namespace web_1.Controllers
         }
 
         // GET: FirmaController/Details/5
-     
+
 
         // GET: FirmaController/Create
         public ActionResult Create()
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-             
-                return NotFound();
-            }
+           
             return View();
         }
 
@@ -43,7 +42,7 @@ namespace web_1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Firma firma)
-        {  
+        {
             // Check if the Firma with the given ID already exists
             if (FirmaMevcut(firma.firma_id))
             {
@@ -57,7 +56,7 @@ namespace web_1.Controllers
                 {
                     _context.Firmas.Add(firma);
                     _context.SaveChanges();
-                  //  HttpContext.Session.SetString("basarli_Firma_create", $"{firma.firma_adi} adlı firma eklendi");
+                    //  HttpContext.Session.SetString("basarli_Firma_create", $"{firma.firma_adi} adlı firma eklendi");
                     TempData["basarli_Firma_create"] = $"{firma.firma_adi} adlı firma eklendi";
 
                     return RedirectToAction(nameof(List));
@@ -79,11 +78,7 @@ namespace web_1.Controllers
         // GET: FirmaController/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
            
-                return NotFound();
-            }
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Firmas == null)
             {
@@ -144,11 +139,7 @@ namespace web_1.Controllers
         // GET: FirmaController/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-             
-                return NotFound();
-            }
+          
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Firmas == null)
             {
@@ -171,22 +162,20 @@ namespace web_1.Controllers
         public IActionResult List()
         {
           
-            if(HttpContext.Session.GetString("basarli_Firma_create") is not null)
-              {
+
+            if (HttpContext.Session.GetString("basarli_Firma_create") is not null)
+            {
                 TempData["basarli_Firma_create"] = HttpContext.Session.GetString("basarli_Firma_create");
-       }
-    // Retrieve the list of Firmas and display it in the view
-    var firmas = _context.Firmas.ToList();
+            }
+            // Retrieve the list of Firmas and display it in the view
+            var firmas = _context.Firmas.ToList();
             return View(firmas);
         }
 
         // GET: FirmaController/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+           
             // Handle cases where the ID is null
             if (id == null)
             {
@@ -221,8 +210,8 @@ namespace web_1.Controllers
             var sefersToDelete = _context.Sefers.Where(s => s.firma_id == id);
             _context.Sefers.RemoveRange(sefersToDelete);
 
-          // Delete the Firma record
-          _context.Firmas.Remove(firma);
+            // Delete the Firma record
+            _context.Firmas.Remove(firma);
 
             await _context.SaveChangesAsync();
             TempData["basarli_Firma_delete"] = $"{firma.firma_adi} adlı firma silendi";

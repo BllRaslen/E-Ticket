@@ -6,9 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using web_1.Context;
 using web_1.ViewModels;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class RezervarsyonController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -28,10 +32,7 @@ namespace web_1.Controllers
             RezervarsyonAndSeferModels rezer = new RezervarsyonAndSeferModels() { sefer_id = Convert.ToInt32(HttpContext.Session.GetString("SessionSefer")) };
 
 
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-                return NotFound();
-            }
+         
             return View(rezer);
         }
 
@@ -57,10 +58,6 @@ namespace web_1.Controllers
         }
         public IActionResult List()
         {
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-                return NotFound();
-            }
 
             // Retrieve the list of Firmas and display it in the view
             var rezervasyons = _context.Rezervasyons.ToList();
@@ -68,11 +65,7 @@ namespace web_1.Controllers
         }
         public async Task<IActionResult> Details(int? id)
         {
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-
-                return NotFound();
-            }
+        
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Firmas == null)
             {
@@ -91,11 +84,7 @@ namespace web_1.Controllers
         }
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-
-                return NotFound();
-            }
+           
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Rezervasyons == null)
             {
@@ -141,10 +130,7 @@ namespace web_1.Controllers
         }
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-                return NotFound();
-            }
+           
             // Handle cases where the ID is null
             if (id == null)
             {

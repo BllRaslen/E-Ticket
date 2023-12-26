@@ -3,8 +3,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Security.Claims;
 using web_1.Context;
 using web_1.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace web_1.Controllers
 {
@@ -35,7 +41,13 @@ namespace web_1.Controllers
 
             return View();
         }
-
+        string hashPassword(string pass)
+        {
+            var sha = SHA256.Create();
+            var asByteArray = Encoding.Default.GetBytes(pass);  
+            var hashedPass = sha.ComputeHash(asByteArray);
+            return Convert.ToBase64String(hashedPass);
+        }
        
 
         // POST: PersonController/Create
@@ -43,8 +55,10 @@ namespace web_1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Person person)
         {
+            person.tipi = "User";
 
-
+            var hasedPass =  hashPassword(person.sifre);
+            person.sifre = hasedPass;
             if (IsEmailValid(person))
             {
                 TempData["basarsiz_Create"] = person.gmail + " Zaten Mevcuttur!";
@@ -52,15 +66,14 @@ namespace web_1.Controllers
             }
             else
             {
-                if (ModelState.IsValid)
-                {
+              
                     _context.Persons.Add(person);
                     _context.SaveChanges();
 
                     TempData["basarli_create"] = person.gmail + " gmail person eklendi";
                     return RedirectToAction("Giris"); // Corrected to redirect to the "Index" action
-                }
-                TempData["basarsiz_Create"] = "Ekleme başarısız";
+                
+
             }
 
             // Continue with the save operation if the ID is unique
@@ -68,6 +81,10 @@ namespace web_1.Controllers
         }
         public ActionResult giris()
         {
+            ClaimsPrincipal claimUser = HttpContext.User;
+
+            if (claimUser.Identity.IsAuthenticated)
+               return RedirectToAction("Index", "Home");
 
             return View();
         }
@@ -81,20 +98,44 @@ namespace web_1.Controllers
         // POST: PersonController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Giris(Person person)
+        public async Task<ActionResult> GirisAsync(Person per)
         {
-
-
-            if (person.gmail == "g20@ogr.tr" && person.sifre == "sau")
+            per.sifre=hashPassword(per.sifre);
+            var Person = await _context.Persons.FirstOrDefaultAsync(m => m.gmail == per.gmail&&m.sifre==per.sifre);
+         
+                if (Person!=null)
             {
-                HttpContext.Session.SetString("SessionAdmin", person.gmail);
-                return RedirectToAction("Home", "Admin");
+                List<Claim> claims = new List<Claim>() {
+                    new Claim(ClaimTypes.NameIdentifier, per.gmail),
+                    new Claim("OtherProperties","Example Role")
+
+                };
+                if(Person.tipi=="Admin")
+                claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+
+                else { claims.Add(new Claim(ClaimTypes.Role, "User")); }
+
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
+                    CookieAuthenticationDefaults.AuthenticationScheme);
+
+                AuthenticationProperties properties = new AuthenticationProperties()
+                {
+
+                    AllowRefresh = true,
+                    IsPersistent = per.KeepLoggedIn
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity), properties);
+                if (Person.tipi == "Admin")
+                    return RedirectToAction("Home", "Admin");
+                else { return RedirectToAction("Index", "Home"); }
 
             }
             
-            else if(IsPersonValid(person))
+            else if(IsPersonValid(per))
             {
-                HttpContext.Session.SetString("SessionUser", person.gmail);
+                HttpContext.Session.SetString("SessionUser", per.gmail);
                 return RedirectToAction("Home", "Muusteri");
 
             }
@@ -106,18 +147,20 @@ namespace web_1.Controllers
 
 
             // Continue with the save operation if the ID is unique
-            return View(person);
+            return View(per);
         }
-       public IActionResult Cikis()
+        public IActionResult Cikis()
         {
-            HttpContext.Session.Remove("SessionAdmin");
-            return View("Giris" );
+            // Sign out the user
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
+
+            // Optionally clear session data
+            HttpContext.Session.Clear();
+
+            // Redirect to the login page
+            return RedirectToAction("Giris", "Person");
         }
-        public IActionResult CikisUser()
-        {
-            HttpContext.Session.Remove("SessionUser");
-            return View("Giris");
-        }
+
 
         public bool IsEmailValid(Person person)
         {

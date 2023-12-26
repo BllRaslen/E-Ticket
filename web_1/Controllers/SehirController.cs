@@ -1,11 +1,15 @@
 ﻿using EfCore2C.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using web_1.Context;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SehirController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -27,10 +31,7 @@ namespace web_1.Controllers
         // GET: FirmaController/Create
         public ActionResult Create()
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+            
             return View();
         }
 
@@ -72,10 +73,7 @@ namespace web_1.Controllers
         // GET: SehirController/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+            
             // Handle cases where the ID is null or the Sehirs collection is null
             if (id == null || _context.Sehirs == null)
             {
@@ -136,6 +134,7 @@ namespace web_1.Controllers
         // GET: SehirController/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+           
             // Handle cases where the ID is null or the Sehirs collection is null
             if (id == null || _context.Sehirs == null)
             {
@@ -153,14 +152,10 @@ namespace web_1.Controllers
 
             return View(Sehir);
         }
-
         // GET: SehirController/List
         public IActionResult List()
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+           
             // Retrieve the list of Sehirs and display it in the view
             var sehirs = _context.Sehirs.ToList();
             return View(sehirs);
@@ -170,16 +165,12 @@ namespace web_1.Controllers
         // GET: SehirController/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+           
             // Handle cases where the ID is null
             if (id == null)
             {
                 return NotFound();
             }
-
             var Sehir = await _context.Sehirs
                 .Include(f => f.Havalimanis)
                 .FirstOrDefaultAsync(m => m.sehir_id == id);

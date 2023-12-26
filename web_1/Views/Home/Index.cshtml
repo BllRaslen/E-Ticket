@@ -11,63 +11,79 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Paytone+One" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="~/css/index.css">
   
-    
+    <style>
+        #second {
+            width: 600px;
+
+            border: 1px solid black;
+            margin: 5% 15% 15% 70%;
+            background: #e8eced;
+            border-collapse: separate;
+        }
+        body {
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+    </style>
+
 </head>
 
-<body >
-   
+<body style="background-image: url('image/myimage.png');  background-position: center;">
+
+
     <!--NavBar End-->
     <!--Heading/Moto-->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div id="content">
-                    <h1>Your  Experience  Starts  Here!</h1>
+                    <h1>@ViewBag.WelcomeMessage</h1>
                 </div>
             </div>
         </div>
     </div>
     <!--Heading/Moto End-->
     <!--Tabs-->
-    <div class="container" id="second">
+    <div id="second" style="width:600px">
         <!--Tabs Headings-->
-        <ul class="nav nav-tabs">
-            <li class="active"><a class="tabshead" data-toggle="tab" href="#home"><i class="fas fa-plane"></i> Flights</a></li>
+        <ul class="nav nav-tabs ">
+            <li class="active"><a class="tabshead " data-toggle="tab" href="#home"><i class="fas fa-plane"></i> Flights</a></li>
             <li><a class="tabshead" data-toggle="tab" href="#menu1"><i class="far fa-address-book"></i> My Bookings</a></li>
             <li><a class="tabshead" data-toggle="tab" href="#menu2"><i class="far fa-clock"></i> Flight Status</a></li>
         </ul>
         <!--Tabs Headings End-->
         <!--Tabs Content-->
-        <div class="tab-content">
+        <div class="tab-content" style="width:60%;">
             <!--Tab Content Flight-->
-            <div id="home" class="tab-pane fade in active">
+            <div id="home" style="height:400px; width:40%;" class="tab-pane fade in active  container">
                 <h3 class="lab">Flights</h3>
                 <form asp-action="Index">
                   <label type="email" for="form3Example3">Kalkiş Noktası</label>
 
-                    <select id="select-state" style=" width: 31%; " placeholder="Pick a state...">
+                    <select id="select-state" style=" width: 250%; " asp-for="selectedKalkisHavalimani" placeholder="Pick a state...">
                             <option value="">Select a state...</option>
-                            @foreach (var label in Model.sehir)
+                            @foreach (var label in Model.HavalimaniModel)
                             {
-                                <option value="@label.sehir_id">@label.sehir_adi</option>
+                                <option value="@label.havalimani_id">@label.havalimani_adi</option>
                             }
 
                         </select>
                         <label type="email" for="form3Example3">Varış Noktası</label>
 
-                    <select id="select-state2" style=" width: 31%; " placeholder="Pick a state...">
+                    <select id="select-state2" style=" width: 250%; " asp-for="selectedvarisHavalimani" placeholder="Pick a state...">
 
                             <option value="">Select a state...</option>
-                        @foreach (var label in Model.sehir)
+                        @foreach (var label in Model.HavalimaniModel)
                             {
-                                <option value="@label.sehir_id">@label.sehir_adi</option>
+                                <option value="@label.havalimani_id">@label.havalimani_adi</option>
                             }
 
                         </select>
 
-                        <br />
 
 
                         @section scripts{
@@ -81,16 +97,18 @@
 
 
                         }
-                    <input type="number" asp-for="SeferModel.firma_id" class="drop" name="passengers" step="1" min="1" max="10" placeholder="Number Of Passengers">
                     <span class="lab">Departure:</span>
-                    <input type="date" name="depart" class="drop" id="depart">
-                    <br />
-                    <span class="lab">Return:</span>
-                    <input type="date" name="return" class="drop" id="return">
-                    < <button type="submit" name="submit" class="btn btn-primary btn-lg">Search Flight</button>
+                    <input asp-for="selectedTarihi"  type="date" class="drop" id="depart">
+        
+                      
+                    <p></p>
+                   
+                
+                 
+                     <button type="submit" name="submit" class="btn btn-primary btn-lg  " >Search Flight</button>
                 </form>
             </div>
-            <div id="menu1" class="tab-pane fade">
+            <div style="height:150px;" id="menu1" class="tab-pane fade">
                 <h3 class="lab2">My Bookings</h3>
                 <form action="GDC-Ticket.php" method="POST">
                     <input type="text" name="ticketno" placeholder="Ticket Number" class="drop2">
@@ -100,7 +118,7 @@
             </div>
             <!--Tab Content My Bookings Ends-->
             <!--Tab Content Flight Status-->
-            <div id="menu2" class="tab-pane fade">
+            <div style="height:150px;" id="menu2" class="tab-pane fade">
                 <h3 class="lab2">Flight Status</h3>
                 <form action="GDC-FlightStatus.php" method="POST">
                     <input type="text" name="flightid" placeholder="Flight Number" class="drop2">
@@ -114,7 +132,10 @@
                     </select>
                     <span class="lab2">Date:</span>
                     <input type="date" name="depart" class="drop21">
+                  
                     <input type="submit" name="submit" id="fsButton">
+
+                  
                 </form>
             </div>
             <!--Tab Content Flight Status Ends-->

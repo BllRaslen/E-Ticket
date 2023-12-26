@@ -1,11 +1,16 @@
 ﻿using EfCore2C.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using web_1.Context;
 
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -20,11 +25,7 @@ namespace web_1.Controllers
 
         public IActionResult Home()
         {
-            if (HttpContext.Session.GetString("SessionAdmin") is null)
-            {
-                TempData["hata"] = "Lütfen Login olunuz";
-                return NotFound();
-            }
+          
 
             return View("Home");
         }

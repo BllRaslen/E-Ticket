@@ -20,8 +20,11 @@ namespace web_1.Context
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
         }
- 
-     
+
+        public ApplicationDBContext()
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             

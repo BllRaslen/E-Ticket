@@ -5,9 +5,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using web_1.Context;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 namespace web_1.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class HavalimaniController : Controller
     {
         private readonly ApplicationDBContext _context;
@@ -25,11 +29,12 @@ namespace web_1.Controllers
         }
 
         // GET: HavalimaniController/Details/5
-      
+
 
         // GET: HavalimaniController/Create
         public ActionResult Create()
         {
+          
             return View();
         }
 
@@ -55,7 +60,7 @@ namespace web_1.Controllers
                 }
 
                 TempData["Sehiryok"] = " Girdiğiniz şehir İdisi Mevcut değildir!!";
-               
+
             }
             // Continue with the save operation if the ID is unique
             return View("Create");
@@ -80,11 +85,7 @@ namespace web_1.Controllers
         // GET: HavalimaniController/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-
-                return NotFound();
-            }
+          
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Havalimanis == null)
             {
@@ -112,27 +113,24 @@ namespace web_1.Controllers
                 return NotFound();
             }
 
-           
-                
-                    // Update the Firma and save changes
-                    _context.Update(havalimani);
-                    await _context.SaveChangesAsync();
+
+
+            // Update the Firma and save changes
+            _context.Update(havalimani);
+            await _context.SaveChangesAsync();
             TempData["basarli_Havalimanis_edit"] = $"{havalimani.havalimani_adi} adlı havalimani guncelide";
             return RedirectToAction(nameof(List));
-            
-            
 
 
-            
 
-       
+
+
+
+
         }
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-                return NotFound();
-            }
+            
             // Handle cases where the ID is null
             if (id == null)
             {
@@ -178,11 +176,6 @@ namespace web_1.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (HttpContext.Session.GetString("SessionUser") is null)
-            {
-
-                return NotFound();
-            }
             // Handle cases where the ID is null or the Firmas collection is null
             if (id == null || _context.Havalimanis == null)
             {

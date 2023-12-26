@@ -1,7 +1,7 @@
 ﻿@model EfCore2C.Models.Sefer
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_AdminLayout";
 }
 
 <h1>Details</h1>
@@ -68,5 +68,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="List">Back to List</a>
 </div>

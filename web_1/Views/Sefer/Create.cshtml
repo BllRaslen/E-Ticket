@@ -46,7 +46,7 @@
             </div>
 
 
-            <label for="select-departure-airport" class="form-label" >Departure Airport</label>
+            <label for="select-departure-airport" class="form-label" asp-for="SeferModel.kalkis_havalimani_id"></label>
             <select id="select-departure-airport2" name="SeferModel.kalkis_havalimani_id" class="form-select" aria-label="Departure Airport">
                 <option value="">Select an Airport...</option>
                 @foreach (var havalimani in Model.HavalimaniModels)
@@ -58,7 +58,7 @@
 
 
 
-            <label for="select-departure-airport" class="form-label">Departure Airport</label>
+            <label for="select-departure-airport" class="form-label" asp-for="SeferModel.varis_havalimani_id"></label>
             <select id="select-departure-airport" name="SeferModel.varis_havalimani_id" class="form-select" aria-label="Departure Airport">
                 <option value="">Select an Airport...</option>
                 @foreach (var havalimani in Model.HavalimaniModels)
@@ -66,7 +66,7 @@
                     <option value="@havalimani.havalimani_id">@havalimani.havalimani_adi</option>
                 }
             </select>
-            <span class="text-danger">@Html.ValidationMessageFor(model => model.SeferModel.kalkis_havalimani_id)</span>
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.SeferModel.varis_havalimani_id)</span>
 
 
 
@@ -83,7 +83,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="List">Back to List</a>
 </div>
 
 

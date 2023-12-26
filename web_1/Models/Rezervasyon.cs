@@ -9,13 +9,17 @@
         {
            
                 [Key]
-                public int rezervasyon_id { get; set; }
+            [Display(Name = "Rezervasyon_RezervasyonId")]
+            public int rezervasyon_id { get; set; }
 
                 [ForeignKey("Sefer")]
-                public int sefer_id { get; set; }
+            [Display(Name = "Rezervasyon_SeferId")]
+            public int sefer_id { get; set; }
+        
                 public Sefer Sefer { get; set; }
-
-                public string rezervasyonTipi { get; set; }
+            [Display(Name = "Rezervasyon_RezervasyonTipi")]
+            public string rezervasyonTipi { get; set; }
+            [Display(Name = "Rezervasyon_KoltukSayisi")]
                 public int koltuk_sayisi { get; set; }
             
 

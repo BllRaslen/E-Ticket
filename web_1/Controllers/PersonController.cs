@@ -87,14 +87,14 @@ namespace web_1.Controllers
 
             if (person.gmail == "g20@ogr.tr" && person.sifre == "sau")
             {
-                HttpContext.Session.SetString("SessionUser", person.gmail);
+                HttpContext.Session.SetString("SessionAdmin", person.gmail);
                 return RedirectToAction("Home", "Admin");
 
             }
             
             else if(IsPersonValid(person))
             {
-
+                HttpContext.Session.SetString("SessionUser", person.gmail);
                 return RedirectToAction("Home", "Muusteri");
 
             }
@@ -108,7 +108,16 @@ namespace web_1.Controllers
             // Continue with the save operation if the ID is unique
             return View(person);
         }
-
+       public IActionResult Cikis()
+        {
+            HttpContext.Session.Remove("SessionAdmin");
+            return View("Giris" );
+        }
+        public IActionResult CikisUser()
+        {
+            HttpContext.Session.Remove("SessionUser");
+            return View("Giris");
+        }
 
         public bool IsEmailValid(Person person)
         {

@@ -1,5 +1,8 @@
 ﻿@model EfCore2C.Models.Havalimani
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
     Layout = "_AdminLayout";
 }
@@ -32,7 +35,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="@localizer["Delete"]" class="btn btn-danger" /> |
+        <a asp-action="List">Back to List</a>
     </form>
 </div>

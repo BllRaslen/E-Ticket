@@ -1,5 +1,8 @@
 ﻿@model EfCore2C.Models.Firma
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 @{
     Layout = "_AdminLayout";
 }
@@ -26,7 +29,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-group">
-            <input type="submit" value="Delete" class="btn btn-danger" />
+            <input type="submit" value="@localizer["Delete"]" class="btn btn-danger" />
             <a asp-action="List">Back to List</a>
         </div>
     </form>

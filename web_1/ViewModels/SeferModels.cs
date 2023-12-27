@@ -1,4 +1,4 @@
-﻿using EfCore2C.Models;
+﻿using web_1.Models;
 
 namespace web_1.ViewModels
 {

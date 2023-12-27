@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EfCore2C.Models.Firma>
+﻿@model IEnumerable<web_1.Models.Firma>
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
 
@@ -34,10 +34,12 @@
             <th>
                 @localizer["Firma_FirmaAdi"]
             </th>
-            <th></th>
+            <th>
+                logo
+            </th>
         </tr>
     </thead>
-    <tbody>
+    <body>
         @foreach (var item in Model)
         {
             <tr>
@@ -47,6 +49,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.firma_adi)
                 </td>
+            <td>
+                <img src="../images/@Html.DisplayFor(modelItem => item.logo)" style="width:15%; height:15%;">
+            </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Action Buttons">
                         <a asp-action="Edit" asp-route-id="@item.firma_id" type="button" class="btn btn-primary">@localizer["Edit"]</a>
@@ -57,5 +62,5 @@
                 </td>
             </tr>
         }
-    </tbody>
+    </body>
 </table>

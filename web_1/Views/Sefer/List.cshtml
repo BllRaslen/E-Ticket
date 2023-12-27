@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EfCore2C.Models.Sefer>
+﻿@model IEnumerable<web_1.Models.Sefer>
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
 
@@ -25,9 +25,7 @@
             <th>
                 @localizer["Sefer_VarisTarihi"]
             </th>
-            <th>
-                @localizer["Sefer_SeferFiyati"]
-            </th>
+            
             <th>
                 @localizer["Sefer_FirmaId"]
             </th>
@@ -47,9 +45,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.varis_tarihi)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.sefer_fiati)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.firma_id)

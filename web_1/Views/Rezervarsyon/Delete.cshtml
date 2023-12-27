@@ -1,4 +1,4 @@
-﻿@model EfCore2C.Models.airline.Models.Rezervasyon
+﻿@model web_1.Models.airline.Models.Rezervasyon
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
 
@@ -32,6 +32,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.rezervasyonTipi)
+        </dd> 
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sefer_fiati)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sefer_fiati)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.koltuk_sayisi)

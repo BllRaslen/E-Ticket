@@ -1,5 +1,4 @@
-﻿using EfCore2C.Models;
-using EfCore2C.Models.airline.Models;
+﻿using web_1.Models;
 
 namespace web_1.ViewModels
 {
@@ -7,6 +6,6 @@ namespace web_1.ViewModels
     {
 
         public int sefer_id { get; set; }
-        public Rezervasyon rezervasyons { get; set; }
+        public Models.airline.Models.Rezervasyon rezervasyons { get; set; }
     }
 }

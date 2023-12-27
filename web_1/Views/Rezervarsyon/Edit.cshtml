@@ -1,4 +1,4 @@
-﻿@model EfCore2C.Models.airline.Models.Rezervasyon
+﻿@model web_1.Models.airline.Models.Rezervasyon
 
 @{
 
@@ -32,6 +32,11 @@
                 <label asp-for="koltuk_sayisi" class="control-label"></label>
                 <input asp-for="koltuk_sayisi" class="form-control" />
                 <span asp-validation-for="koltuk_sayisi" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="sefer_fiati" class="control-label"></label>
+                <input asp-for="sefer_fiati" class="form-control" />
+                <span asp-validation-for="sefer_fiati" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

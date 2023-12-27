@@ -1,4 +1,4 @@
-﻿@model EfCore2C.Models.airline.Models.Rezervasyon
+﻿@model web_1.Models.airline.Models.Rezervasyon
 
 @{
     Layout = "_AdminLayout";
@@ -33,6 +33,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.koltuk_sayisi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sefer_fiati)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sefer_fiati)
         </dd>
     </dl>
 </div>

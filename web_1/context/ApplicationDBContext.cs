@@ -8,6 +8,7 @@ namespace web_1.Context
     {
 
         public DbSet<Sefer> Sefers { get; set; }
+        public DbSet<Odeme> Odeme { get; set; }
         public DbSet<Sehir> Sehirs { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Firma> Firmas { get; set; } // Correct the property name

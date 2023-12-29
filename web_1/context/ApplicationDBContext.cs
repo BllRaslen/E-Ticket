@@ -1,7 +1,6 @@
-﻿using EfCore2C.Models;
-using EfCore2C.Models.airline.Models;
+﻿using web_1.Models;
 using Microsoft.EntityFrameworkCore;
-using web_1.Models;
+using web_1.Models.airline.Models;
 
 namespace web_1.Context
 {
@@ -9,11 +8,18 @@ namespace web_1.Context
     {
 
         public DbSet<Sefer> Sefers { get; set; }
+        public DbSet<Odeme> Odeme { get; set; }
         public DbSet<Sehir> Sehirs { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Firma> Firmas { get; set; } // Correct the property name
         public DbSet<Havalimani> Havalimanis { get; set; }
         public DbSet<Rezervasyon> Rezervasyons { get; set; }
+        public DbSet<Koltuklar> Koltuklars { get; set; }
+
+       
+
+
+
 
 
 
@@ -42,6 +48,16 @@ namespace web_1.Context
                .WithMany(f => f.Havalimanis)
                .HasForeignKey(s => s.sehir_id)
                .OnDelete(DeleteBehavior.Cascade);
+
+
+            // Configure the one-to-many relationship
+            modelBuilder.Entity<Koltuklar>()
+                .HasOne(k => k.rezervasyon)
+                .WithMany(r => r.Koltuklars)
+                .HasForeignKey(k => k.rezervasyon_id)
+                .OnDelete(DeleteBehavior.Cascade); // Cascade delete if needed
+
+      
 
 
 

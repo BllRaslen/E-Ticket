@@ -1192,3 +1192,4 @@ C:\Program Files\Git\My-Github-projects\E-Ticket\web_1\obj\Debug\net6.0\web_1.ge
 C:\Program Files\Git\My-Github-projects\E-Ticket\web_1\obj\Debug\net6.0\ref\web_1.dll
 C:\Program Files\Git\My-Github-projects\E-Ticket\web_1\bin\Debug\net6.0\Resources\en-US.json
 C:\Program Files\Git\My-Github-projects\E-Ticket\web_1\bin\Debug\net6.0\Resources\tr-TR.json
+C:\Program Files\Git\My-Github-projects\E-Ticket\web_1\obj\Debug\net6.0\web_1.csproj.ResolveComReference.cache

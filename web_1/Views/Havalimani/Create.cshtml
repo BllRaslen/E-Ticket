@@ -1,4 +1,5 @@
-﻿@model web_1.Models.Havalimani
+﻿@using web_1.ViewModels
+@model HavalimaniModel
 
 @{
     Layout = "_AdminLayout";
@@ -16,20 +17,25 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="havalimani_id" class="control-label"></label>
-                <input asp-for="havalimani_id" class="form-control" />
-                <span asp-validation-for="havalimani_id" class="text-danger"></span>
+                <label asp-for="havalimanimodel.havalimani_id" class="control-label"></label>
+                <input asp-for="havalimanimodel.havalimani_id" class="form-control" />
+                <span asp-validation-for="havalimanimodel.havalimani_id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="havalimani_adi" class="control-label"></label>
-                <input asp-for="havalimani_adi" class="form-control" />
-                <span asp-validation-for="havalimani_adi" class="text-danger"></span>
+                <label asp-for="havalimanimodel.havalimani_adi" class="control-label"></label>
+                <input asp-for="havalimanimodel.havalimani_adi" class="form-control" />
+                <span asp-validation-for="havalimanimodel.havalimani_adi" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="sehir_id" class="control-label"></label>
-                <input asp-for="sehir_id" class="form-control" />
-                <span asp-validation-for="sehir_id" class="text-danger"></span>
-            </div>
+     
+            <label for="select-departure-airport" class="form-label" asp-for="havalimanimodel.sehir_id"></label>
+            <select id="select-departure-airport" asp-for="havalimanimodel.sehir_id" class="form-select" aria-label="Departure Airport">
+                <option value="">Select an Airport...</option>
+                @foreach (var sehir in Model.sehirs)
+                {
+                    <option value="@sehir.sehir_id">@sehir.sehir_adi</option>
+                }
+            </select>
+            <span class="text-danger">@Html.ValidationMessageFor(model => model.havalimanimodel.havalimani_id)</span>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -41,6 +47,19 @@
     <a asp-action="List">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+@section scripts{
+    <script>
+
+
+
+
+        $(document).ready(function () {
+            $('#select-departure-airport').selectize();
+
+        });
+    </script>
+
+
+
+                        }

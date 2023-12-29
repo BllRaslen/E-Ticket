@@ -1,0 +1,175 @@
+﻿@model IEnumerable<web_1.Models.Koltuklar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Aircraft seats map</title>
+	<link rel="stylesheet" href="./style.css">
+	<link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+ 
+
+
+<body>
+    <input type="hidden" id="selectedSeatId" name="selectedSeatId" />
+
+    <div class="aircraft">
+        <div class="aircraft-body">
+            <div class="top-left-exists">
+                <img src="https://i.ibb.co/ftwgLCL/exist.png">
+            </div>
+            <div class="top-right-exists">
+                <img src="https://i.ibb.co/ftwgLCL/exist.png">
+            </div>
+            <div class="seats">
+               
+
+                @for (int  i = 0; i < Model.Count()/2; i += 3)
+                    {
+                       
+                        <div class="seats-triple first-line">
+                            @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                            {
+                            @if (@Model.ElementAt(j).durum)
+                            {
+                                <div class="active seat" >
+                                    <span>@Model.ElementAt(j).Id</span>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="seat" onclick="setSelectedSeat('@Model.ElementAt(j).Id')">
+                                    <span>@Model.ElementAt(j).Id</span>
+                                </div>
+
+                            }
+
+                            }
+
+                        </div>
+                    }
+
+                  
+        
+            </div>
+            <div class="seats">
+
+
+                @for (int i = Model.Count() / 2; i < Model.Count() ; i += 3)
+                {
+
+                    <div class="seats-triple first-line">
+                        @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                        {
+                            @if (@Model.ElementAt(j).durum)
+                            {
+                                <div class="empty seat">
+                                    <span>@Model.ElementAt(j).Id</span>
+                                </div>
+                            }
+                            else 
+                            {
+                                <div class="seat" onclick="setSelectedSeat('@Model.ElementAt(j).Id')">
+                                    <span>@Model.ElementAt(j).Id</span>
+                                </div>
+                                
+                            }
+                        }
+
+                    </div>
+                }
+
+
+
+            </div>
+        
+            
+      
+            <div class="bottom-left-exists">
+                <img src="https://i.ibb.co/ftwgLCL/exist.png">
+            </div>
+            <div class="bottom-right-exists">
+                <img src="https://i.ibb.co/ftwgLCL/exist.png">
+            </div>
+            <div class="aircraft-top-wing">
+                <div class="exists">
+                    <div><img src="https://i.ibb.co/ftwgLCL/exist.png"></div>
+                    <div><img src="https://i.ibb.co/ftwgLCL/exist.png"></div>
+                </div>
+            </div>
+            <div class="aircraft-bottom-wing">
+                <div class="exists">
+                    <div><img src="https://i.ibb.co/ftwgLCL/exist.png"></div>
+                    <div><img src="https://i.ibb.co/ftwgLCL/exist.png"></div>
+                </div>
+            </div>
+            <div class="aircraft-head">
+                <div class="aircraft-head-body">
+                    <div class="windows">
+                        <img src="https://i.ibb.co/F5hp29L/windows.png">
+                    </div>
+                    <div class="front-lavatory">
+                        <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+                    </div>
+                </div>
+
+            </div>
+            <div class="aircraft-tail">
+                <div class="aircraft-tail-body">
+                    <div class="back-lavatory">
+                        <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+
+                        <img src="https://i.ibb.co/NVT4SZ1/lavatory.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button type="button" class="btn btn-primary" onclick="saveSelectedSeat()">Save Selected Seat</button>
+
+    <!-- partial -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var seats = document.querySelectorAll(".seat");
+
+            seats.forEach(function (seat) {
+                seat.addEventListener("click", function () {
+                
+                    if (!seat.classList.contains("empty")) {
+                    
+                        seats.forEach(function (s) {
+                            s.classList.remove("active");
+                        });
+
+                     
+                        seat.classList.add("active");
+                    }
+                });
+            });
+        });
+
+
+        function saveSelectedSeat() {
+
+            var activeSeat = document.querySelector(".seat.active");
+
+            if (activeSeat) {
+                var selectedSeatId = activeSeat.querySelector("span").innerText;
+                // Add logic to handle the selected seat ID, for example, redirect to SaveSelectedSeat action
+                window.location.href = "/Home/SaveSelectedSeat?seatId=" + selectedSeatId;
+            } else {
+                alert("Please select a seat before saving.");
+            }
+        }
+
+    </script>
+
+   
+ 
+  
+
+</body>
+</html>

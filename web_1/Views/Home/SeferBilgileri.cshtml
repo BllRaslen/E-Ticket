@@ -113,42 +113,41 @@
                     </div>
                 </div>
                 <div class="collapse" id="flightInfo_@item.SeferId">
-                    <div class="card">
+                    <div >
                         <div class="row mb-3">
                            
-                                <table class="table">
-                                    <thead class="table-light">
-                                        <tr>
-                                            
-                                            <th scope="col">tipi</th>
-                                            <th scope="col">fiyat</th>
-                                            <th scope="col">kalan koltuk sayısı</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <div class="table">
-                                    <div class="table-row">
-                                        <div class="table-cell">Header 1</div>
-                                        <div class="table-cell">Header 2</div>
-                                        <div class="table-cell">Header 3</div>
-                                    </div>
+                                    <table class="table table-sm ">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">kotuk</th>
+                                                <th scope="col">tipi</th>
+                                                <th scope="col">fiyat</th>
+                                                <th scope="col">   </th>
+
+                                            </tr>
+                                        </thead>
+                                  
                                     @foreach (var itemm in item.rezervasyons)
                                     {
                                   
                                      
                                       
-                                            <div class="table-row">
-                                                <div class="table-cell">@itemm.rezervasyonTipi</div>
-                                                <div class="table-cell">@itemm.sefer_fiati</div>
-                                                <div class="table-cell">@itemm.koltuk_sayisi</div>
-                                            </div>
+                                           <tbody>
+                                                   <tr>
+                                    
+                                          <td>@itemm.koltuk_sayisi</td>
+                                          <td>@itemm.rezervasyonTipi</td>
+                                          <td>@itemm.sefer_fiati</td>
+                                                    <th scope="row">    <a asp-action="KoltukSec" asp-route-id="@itemm.rezervasyon_id" type="button" class="btn btn-primary">select</a></th>
+                                        </tr>
+                                        </tbody>
                                           
 
                                     
                                     }
 
-                                    </div>
-                                </tbody>
+                             
+                            
                                 </table>
                             
                             <!-- أضف المزيد من التفاصيل حسب الحاجة -->

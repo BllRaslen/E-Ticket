@@ -21,7 +21,7 @@ namespace web_1.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("EfCore2C.Models.Firma", b =>
+            modelBuilder.Entity("web_1.Models.Firma", b =>
                 {
                     b.Property<int>("firma_id")
                         .ValueGeneratedOnAdd()
@@ -33,12 +33,16 @@ namespace web_1.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("logo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("firma_id");
 
                     b.ToTable("Firmas");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Havalimani", b =>
+            modelBuilder.Entity("web_1.Models.Havalimani", b =>
                 {
                     b.Property<int>("havalimani_id")
                         .ValueGeneratedOnAdd()
@@ -60,93 +64,29 @@ namespace web_1.Migrations
                     b.ToTable("Havalimanis");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Sefer", b =>
+            modelBuilder.Entity("web_1.Models.Koltuklar", b =>
                 {
-                    b.Property<int>("sefer_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("sefer_id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("firma_id")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("kalkis_havalimani_id")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("kalkis_saati")
+                    b.Property<string>("Kod")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("kalkis_tarihi")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<bool>("durum")
+                        .HasColumnType("boolean");
 
-                    b.Property<double>("sefer_fiati")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("varis_havalimani_id")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("varis_saati")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("varis_tarihi")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("sefer_id");
-
-                    b.HasIndex("firma_id");
-
-                    b.HasIndex("kalkis_havalimani_id");
-
-                    b.HasIndex("varis_havalimani_id");
-
-                    b.ToTable("Sefers");
-                });
-
-            modelBuilder.Entity("EfCore2C.Models.Sehir", b =>
-                {
-                    b.Property<int>("sehir_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("sehir_id"));
-
-                    b.Property<string>("sehir_adi")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("sehir_id");
-
-                    b.ToTable("Sehirs");
-                });
-
-            modelBuilder.Entity("EfCore2C.Models.airline.Models.Rezervasyon", b =>
-                {
                     b.Property<int>("rezervasyon_id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("rezervasyon_id"));
+                    b.HasKey("Id");
 
-                    b.Property<int>("koltuk_sayisi")
-                        .HasColumnType("integer");
+                    b.HasIndex("rezervasyon_id");
 
-                    b.Property<string>("rezervasyonTipi")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("sefer_id")
-                        .HasColumnType("integer");
-
-                    b.HasKey("rezervasyon_id");
-
-                    b.HasIndex("sefer_id");
-
-                    b.ToTable("Rezervasyons");
+                    b.ToTable("Koltuklars");
                 });
 
             modelBuilder.Entity("web_1.Models.Person", b =>
@@ -193,9 +133,101 @@ namespace web_1.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Havalimani", b =>
+            modelBuilder.Entity("web_1.Models.Sefer", b =>
                 {
-                    b.HasOne("EfCore2C.Models.Sehir", "Sehir")
+                    b.Property<int>("sefer_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("sefer_id"));
+
+                    b.Property<int>("firma_id")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("kalkis_havalimani_id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("kalkis_saati")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("kalkis_tarihi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("varis_havalimani_id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("varis_saati")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("varis_tarihi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("sefer_id");
+
+                    b.HasIndex("firma_id");
+
+                    b.HasIndex("kalkis_havalimani_id");
+
+                    b.HasIndex("varis_havalimani_id");
+
+                    b.ToTable("Sefers");
+                });
+
+            modelBuilder.Entity("web_1.Models.Sehir", b =>
+                {
+                    b.Property<int>("sehir_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("sehir_id"));
+
+                    b.Property<string>("sehir_adi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("sehir_id");
+
+                    b.ToTable("Sehirs");
+                });
+
+            modelBuilder.Entity("web_1.Models.airline.Models.Rezervasyon", b =>
+                {
+                    b.Property<int>("rezervasyon_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("rezervasyon_id"));
+
+                    b.Property<int>("kalan_koltuk_sayisi")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("koltuk_sayisi")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("rezervasyonTipi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("sefer_fiati")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("sefer_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("rezervasyon_id");
+
+                    b.HasIndex("sefer_id");
+
+                    b.ToTable("Rezervasyons");
+                });
+
+            modelBuilder.Entity("web_1.Models.Havalimani", b =>
+                {
+                    b.HasOne("web_1.Models.Sehir", "Sehir")
                         .WithMany("Havalimanis")
                         .HasForeignKey("sehir_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -204,21 +236,32 @@ namespace web_1.Migrations
                     b.Navigation("Sehir");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Sefer", b =>
+            modelBuilder.Entity("web_1.Models.Koltuklar", b =>
                 {
-                    b.HasOne("EfCore2C.Models.Firma", "Firma")
+                    b.HasOne("web_1.Models.airline.Models.Rezervasyon", "rezervasyon")
+                        .WithMany("Koltuklars")
+                        .HasForeignKey("rezervasyon_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("rezervasyon");
+                });
+
+            modelBuilder.Entity("web_1.Models.Sefer", b =>
+                {
+                    b.HasOne("web_1.Models.Firma", "Firma")
                         .WithMany("Seferler")
                         .HasForeignKey("firma_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EfCore2C.Models.Havalimani", "KalkisHavalimani")
+                    b.HasOne("web_1.Models.Havalimani", "KalkisHavalimani")
                         .WithMany()
                         .HasForeignKey("kalkis_havalimani_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EfCore2C.Models.Havalimani", "VarisHavalimani")
+                    b.HasOne("web_1.Models.Havalimani", "VarisHavalimani")
                         .WithMany()
                         .HasForeignKey("varis_havalimani_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -231,9 +274,9 @@ namespace web_1.Migrations
                     b.Navigation("VarisHavalimani");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.airline.Models.Rezervasyon", b =>
+            modelBuilder.Entity("web_1.Models.airline.Models.Rezervasyon", b =>
                 {
-                    b.HasOne("EfCore2C.Models.Sefer", "Sefer")
+                    b.HasOne("web_1.Models.Sefer", "Sefer")
                         .WithMany("Rezervasyons")
                         .HasForeignKey("sefer_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -242,19 +285,24 @@ namespace web_1.Migrations
                     b.Navigation("Sefer");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Firma", b =>
+            modelBuilder.Entity("web_1.Models.Firma", b =>
                 {
                     b.Navigation("Seferler");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Sefer", b =>
+            modelBuilder.Entity("web_1.Models.Sefer", b =>
                 {
                     b.Navigation("Rezervasyons");
                 });
 
-            modelBuilder.Entity("EfCore2C.Models.Sehir", b =>
+            modelBuilder.Entity("web_1.Models.Sehir", b =>
                 {
                     b.Navigation("Havalimanis");
+                });
+
+            modelBuilder.Entity("web_1.Models.airline.Models.Rezervasyon", b =>
+                {
+                    b.Navigation("Koltuklars");
                 });
 #pragma warning restore 612, 618
         }

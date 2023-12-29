@@ -4,8 +4,11 @@
   "signup": "uye ol",
   "login": "giriş yap",
   "Logout": "Çikiş yap",
-
-
+  "Beni_Hatırla": "Beni Hatırla",
+  "Şifremi_Unuttum": "Şifremi Unuttum?",
+  "ara": "Uçuş ara ",
+  "KalkışNoktası": "Kalkış Noktası",
+  "Varış_Noktası": "Varış Noktası",
   //crud
   "Edit": "Düzenle",
   "Delete": "Sil",
@@ -45,6 +48,17 @@
   "Sefer_VarisSaati": "Varış Saati",
   "Sefer_KalkisHavalimaniId": "Kalkış Havalimanı Adi",
   "Sefer_VarisHavalimaniId": "Varış Havalimanı Adi",
+
+  //person model(display name)
+  "Person_ID": "KişiID",
+  "Person_Ad": " Ad",
+  "Person_Telefon": " Telefon",
+  "Person_Soyad": " Soyad",
+  "Person_Doğum_Tarihi": "Doğum Tarihi",
+  "Person_Gmail": "Gmail",
+  "Person_Şifre": "Şifre",
+  "Person_Tipi": "ipi",
+  "Person_Hatırla": "Hatırla",
 
   // admin layout
   "Flights": "Sefer",

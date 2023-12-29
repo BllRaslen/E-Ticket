@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\1da4f922-520c-4df7-88f5-1bd576f5e714_images.png",
+      "PackagePath": "staticwebassets\\images\\1da4f922-520c-4df7-88f5-1bd576f5e714_images.png"
     },
     {
       "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\1f10b0ac-4150-412f-8d42-4f05a0290fe0_download.jpeg",
@@ -37,8 +45,16 @@
       "PackagePath": "staticwebassets\\images\\5bbcf156-2c3f-4e4d-b8a2-1dae90e91dbb_images (1).png"
     },
     {
+      "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\906879d4-fc67-4da9-94d5-fb2994f23695_download.jpeg",
+      "PackagePath": "staticwebassets\\images\\906879d4-fc67-4da9-94d5-fb2994f23695_download.jpeg"
+    },
+    {
       "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\f5ce281c-4e8c-4070-9bdf-444e38d99291_images (2).png",
       "PackagePath": "staticwebassets\\images\\f5ce281c-4e8c-4070-9bdf-444e38d99291_images (2).png"
+    },
+    {
+      "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\fe1a2a2f-1518-4377-9080-d681db2046ac_images (2).png",
+      "PackagePath": "staticwebassets\\images\\fe1a2a2f-1518-4377-9080-d681db2046ac_images (2).png"
     },
     {
       "Id": "C:\\Program Files\\Git\\My-Github-projects\\E-Ticket\\web_1\\wwwroot\\images\\myimage.png",

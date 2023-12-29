@@ -1,6 +1,6 @@
-﻿using EfCore2C.Models.airline.Models;
+﻿using web_1.Models;
 
-namespace EfCore2C.Models
+namespace web_1.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -19,11 +19,10 @@ namespace EfCore2C.Models
         public string kalkis_saati { get; set; }
         [Display(Name = "Sefer_VarisSaati")]
         public string varis_saati { get; set; }
-        [Display(Name = "Sefer_SeferFiyati")]
-        public double sefer_fiati { get; set; }
+   
 
         
-        public ICollection<Rezervasyon> Rezervasyons { get; set; }
+        public ICollection<airline.Models.Rezervasyon> Rezervasyons { get; set; }
 
 
         [ForeignKey("KalkisHavalimani")]

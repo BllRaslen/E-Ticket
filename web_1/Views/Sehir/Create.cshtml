@@ -1,4 +1,4 @@
-﻿@model EfCore2C.Models.Sehir
+﻿@model web_1.Models.Sehir
 
 @{
     Layout = "_AdminLayout";
@@ -19,12 +19,12 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input asp-for="sehir_id" placeholder="Geçerli bir şifre girin" class="form-control" type="text" />
+                        <input asp-for="sehir_id"  class="form-control" type="text" />
                         <label asp-for="sehir_id" for="form3Example3"></label>
                         <span asp-validation-for="sehir_id" class="text-danger"></span>
                     </div>
                     <div class="form-outline mb-4">
-                        <input asp-for="sehir_adi" placeholder="Geçerli bir e-posta adresi girin" class="form-control" type="text" />
+                        <input asp-for="sehir_adi" class="form-control" type="text" />
                         <label asp-for="sehir_adi" for="form3Example3"></label>
                         <span asp-validation-for="sehir_adi" class="text-danger"></span>
                     </div>

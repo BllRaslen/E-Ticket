@@ -1,4 +1,5 @@
-﻿namespace EfCore2C.Models
+﻿
+namespace web_1.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

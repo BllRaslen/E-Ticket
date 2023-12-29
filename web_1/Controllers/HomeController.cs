@@ -1,5 +1,4 @@
-﻿using EfCore2C.Models;
-using Microsoft.AspNetCore.Localization;
+﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
@@ -60,23 +59,70 @@ namespace web_1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(HomeModels HomeViewModel)
         {
-            List<Sefer> sefers = _context.Sefers
-                .Where(u => u.kalkis_havalimani_id == Convert.ToInt32(HomeViewModel.selectedKalkisHavalimani) && u.varis_havalimani_id == Convert.ToInt32(HomeViewModel.selectedvarisHavalimani))
-                .ToList();
+         
+            List<kartlarModels> seferData = GetSeferData(Convert.ToInt32(HomeViewModel.selectedKalkisHavalimani), Convert.ToInt32(HomeViewModel.selectedvarisHavalimani),HomeViewModel.selectedTarihi);
 
-            return View("SeferBilgileri", sefers);
+            return View("SeferBilgileri", seferData);
+        }
+        public List<kartlarModels> GetSeferData(int selectedKalkisHavalimaniId,int selectedVarisHavalimaniId,string tarihi)
+        {
+
+            var query =      (from f in _context.Firmas
+                         join s in _context.Sefers on f.firma_id equals s.firma_id
+                         join h in _context.Havalimanis on s.kalkis_havalimani_id equals h.havalimani_id
+                         where s.kalkis_havalimani_id == selectedKalkisHavalimaniId &&
+                      s.varis_havalimani_id == selectedVarisHavalimaniId
+
+                      &&
+                      s.kalkis_tarihi == tarihi
+                              select new kartlarModels
+                         {
+                             logo=f.logo,
+                             SeferId = s.sefer_id,
+                             KalkisSaati = s.kalkis_saati,
+                             VarisSaati = s.varis_saati,
+                             FirmaAdi = f.firma_adi,
+                             HavalimaniAdi = h.havalimani_adi,
+                             rezervasyons = _context.Rezervasyons.Where(x => x.sefer_id == s.sefer_id).ToList(),
+
+                             KalkisTarihi = s.kalkis_tarihi,
+                             VarisTarihi = s.varis_tarihi
+                         }).ToList();
+
+
+
+            return query;
+
         }
 
 
-        public IActionResult SeferBilgileri(Sefer sefer)
+        public IActionResult SeferBilgileri(List<kartlarModels> kartlarModel)
         {
-            return View(sefer);
+
+
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+
+
+        public IActionResult KoltukSec(int id)
+        {
+            List<Koltuklar> koltuklars = (_context.Koltuklars.Where(e =>e.rezervasyon_id==id)).ToList();
+
+
+            return View(koltuklars);
+        }
+
+        public int SaveSelectedSeat(int seatId)
+        {
+            return seatId;
         }
     }
 }

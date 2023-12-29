@@ -1,5 +1,4 @@
-﻿using EfCore2C.Models;
-using EfCore2C.Models.airline.Models;
+﻿using web_1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +8,9 @@ using web_1.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-namespace web_1.Controllers
+using web_1.Models.airline.Models;
+
+namespace EfCore2C.Controllers
 {
     [Authorize(Roles = "Admin")]
 
@@ -28,24 +29,69 @@ namespace web_1.Controllers
         }
         public ActionResult Create()
         {
+            List<Sefer> sefers = _context.Sefers.ToList();
 
-            RezervarsyonAndSeferModels rezer = new RezervarsyonAndSeferModels() { sefer_id = Convert.ToInt32(HttpContext.Session.GetString("SessionSefer")) };
+            RezervarsyonAndSeferModels rezer = new RezervarsyonAndSeferModels() { 
+                sefer_id = Convert.ToInt32(HttpContext.Session.GetString("SessionSefer")),
+                sefers=sefers
+            };
 
 
          
             return View(rezer);
         }
 
+        public  void CreateKoltuklarObjects(int numberOfSeats)
+        {
+
+            for (int i = 1; i <= numberOfSeats; i++)
+            {
+                Koltuklar koltuk = new Koltuklar
+                {
+                    Id = i,
+                    Kod = $"Seat{i}", // توليد رمز الكرسي بشكل تلقائي، يمكنك تعديله حسب الحاجة
+                    durum = false, // افتراضياً يمكنك تعيين حالة الكرسي
+                    rezervasyon_id = 0, // يمكنك تعيين قيمة افتراضية حسب الحاجة
+                };
+                
+             
+            }
+        }
         // POST: FirmaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(RezervarsyonAndSeferModels rezervasyon)
         {
+          int a=  rezervasyon.rezervasyons.koltuk_sayisi;
+
+            int result = 0;
+            if (_context.Koltuklars?.Any() == true)
+            {
+
+                result= _context.Koltuklars.Max(k => k.Id);
+                ;
+            }
+
 
 
 
             _context.Rezervasyons.Add(rezervasyon.rezervasyons);
+        
             _context.SaveChanges();
+
+            for (int i =1+ result; i <= a+result; i++)
+            {
+                Koltuklar koltuk = new Koltuklar
+                {
+                    Id = i,
+                    Kod = i.ToString(), // توليد رمز الكرسي بشكل تلقائي، يمكنك تعديله حسب الحاجة
+                    durum = false, // افتراضياً يمكنك تعيين حالة الكرسي
+                    rezervasyon_id = rezervasyon.rezervasyons.rezervasyon_id, // يمكنك تعيين قيمة افتراضية حسب الحاجة
+                };
+
+                _context.Koltuklars.Add(koltuk);
+                _context.SaveChanges();
+            }
             //   TempData["basarli_sehir_create"] = $"{rezervasyon.sehir_adi} adlı Sehir eklendi";
             return RedirectToAction(nameof(Create));
 
@@ -170,5 +216,14 @@ namespace web_1.Controllers
             TempData["basarli_rezervasyon_delete"] = $"{rezervasyon.rezervasyonTipi} tipile rezervasyon silendi";
             return RedirectToAction(nameof(List));
         }
+
+        public int CountNonActiveKoltuklars()
+        {
+            
+            var result = _context.Koltuklars.Count(k => k.durum == false);
+
+            return result;
+        }
+
     }
 }

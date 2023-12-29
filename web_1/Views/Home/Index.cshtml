@@ -1,11 +1,15 @@
 ﻿@using web_1.ViewModels
 @model HomeModels
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer localizer
 <!DOCTYPE html>
 <html>
 <head>
     <title>GDC Airways</title>
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -32,7 +36,7 @@
 
 </head>
 
-<body style="background-image: url('image/myimage.png');  background-position: center;">
+<body style="background-image: url('images/myimage.png');  background-position: center;">
 
 
     <!--NavBar End-->
@@ -48,10 +52,12 @@
     </div>
     <!--Heading/Moto End-->
     <!--Tabs-->
-    <div id="second" style="width:600px">
+    <div id="second" style="width:600px;
+         border-radius: 14px;
+         ">
         <!--Tabs Headings-->
         <ul class="nav nav-tabs ">
-            <li class="active"><a class="tabshead " data-toggle="tab" href="#home"><i class="fas fa-plane"></i> Flights</a></li>
+            <li class="active"><a class="tabshead " data-toggle="tab" href="#home"><i class="fas fa-plane"></i> @localizer["Flights"]</a></li>
             <li><a class="tabshead" data-toggle="tab" href="#menu1"><i class="far fa-address-book"></i> My Bookings</a></li>
             <li><a class="tabshead" data-toggle="tab" href="#menu2"><i class="far fa-clock"></i> Flight Status</a></li>
         </ul>
@@ -60,9 +66,9 @@
         <div class="tab-content" style="width:60%;">
             <!--Tab Content Flight-->
             <div id="home" style="height:400px; width:40%;" class="tab-pane fade in active  container">
-                <h3 class="lab">Flights</h3>
-                <form asp-action="Index">
-                  <label type="email" for="form3Example3">Kalkiş Noktası</label>
+                <h3 class="lab">@localizer["Flights"]</h3>
+                <form asp-action="Index" >
+                    <label type="email" for="form3Example3">@localizer["KalkışNoktası"]</label>
 
                     <select id="select-state" style=" width: 250%; " asp-for="selectedKalkisHavalimani" placeholder="Pick a state...">
                             <option value="">Select a state...</option>
@@ -72,7 +78,7 @@
                             }
 
                         </select>
-                        <label type="email" for="form3Example3">Varış Noktası</label>
+                    <label type="email" for="form3Example3">@localizer["Varış_Noktası"]</label>
 
                     <select id="select-state2" style=" width: 250%; " asp-for="selectedvarisHavalimani" placeholder="Pick a state...">
 
@@ -97,15 +103,15 @@
 
 
                         }
-                    <span class="lab">Departure:</span>
+                    <span class="lab">@localizer["Sefer_KalkisTarihi"]:</span>
                     <input asp-for="selectedTarihi"  type="date" class="drop" id="depart">
         
                       
                     <p></p>
-                   
-                
-                 
-                     <button type="submit" name="submit" class="btn btn-primary btn-lg  " >Search Flight</button>
+
+
+
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg  ">@localizer["ara"]</button>
                 </form>
             </div>
             <div style="height:150px;" id="menu1" class="tab-pane fade">

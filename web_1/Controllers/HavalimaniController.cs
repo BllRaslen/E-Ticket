@@ -1,4 +1,4 @@
-﻿using EfCore2C.Models;
+﻿using web_1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +8,8 @@ using web_1.Context;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using web_1.ViewModels;
+
 namespace web_1.Controllers
 {
     [Authorize(Roles = "Admin")]
@@ -34,36 +36,28 @@ namespace web_1.Controllers
         // GET: HavalimaniController/Create
         public ActionResult Create()
         {
-          
-            return View();
+            List<Sehir> sehirs = _context.Sehirs.ToList();
+            HavalimaniModel sfm = new HavalimaniModel()
+            {
+                sehirs = sehirs
+            };
+
+            return View(sfm);
         }
 
         // POST: HavalimaniController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Havalimani havalimani)
+        public IActionResult Create(HavalimaniModel havalimani)
         {
-            if (HavalimaniMevcut(havalimani.havalimani_id))
-            {
-                TempData["basarsiz_create"] = havalimani.havalimani_id + " Zaten Mevcuttur!";
-                return RedirectToAction("List");
-            }
-            else
-            {
-                if (SehirMevcut(havalimani.sehir_id))
-                {
-                    _context.Havalimanis.Add(havalimani);
+          
+            
+                    _context.Havalimanis.Add(havalimani.havalimanimodel);
                     _context.SaveChanges();
-                    TempData["basarli_Havalimanis_create"] = $"{havalimani.havalimani_adi} adlı firma eklendi";
 
                     return RedirectToAction("List");
-                }
+                
 
-                TempData["Sehiryok"] = " Girdiğiniz şehir İdisi Mevcut değildir!!";
-
-            }
-            // Continue with the save operation if the ID is unique
-            return View("Create");
         }
 
         private bool SehirMevcut(int id)

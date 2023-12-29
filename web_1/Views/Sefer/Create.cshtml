@@ -43,7 +43,7 @@
 
 
             <label for="select-departure-airport" class="form-label" asp-for="SeferModel.kalkis_havalimani_id"></label>
-            <select id="select-departure-airport2" name="SeferModel.kalkis_havalimani_id" class="form-select" aria-label="Departure Airport">
+            <select id="select-departure-airport2" asp-for="SeferModel.kalkis_havalimani_id" class="form-select" aria-label="Departure Airport">
                 <option value="">Select an Airport...</option>
                 @foreach (var havalimani in Model.HavalimaniModels)
                 {
@@ -55,7 +55,7 @@
 
 
             <label for="select-departure-airport" class="form-label" asp-for="SeferModel.varis_havalimani_id"></label>
-            <select id="select-departure-airport" name="SeferModel.varis_havalimani_id" class="form-select" aria-label="Departure Airport">
+            <select id="select-departure-airport" asp-for="SeferModel.varis_havalimani_id" class="form-select" aria-label="Departure Airport">
                 <option value="">Select an Airport...</option>
                 @foreach (var havalimani in Model.HavalimaniModels)
                 {

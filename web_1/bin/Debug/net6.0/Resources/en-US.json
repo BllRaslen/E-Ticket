@@ -5,7 +5,12 @@
   "signup": "Sign up",
   "login": "Login",
   "Logout": "Log out",
+  "Beni_Hatırla": "  Remember Me ",
+  "Şifremi_Unuttum": "Forgot Password?",
 
+  "KalkışNoktası": "Departure Point",
+  "Varış_Noktası": "Arrival Point",
+  "ara": "Search Flight",
 
   //crud
   "Edit": "Edit",
@@ -47,6 +52,16 @@
   "Sefer_VarisSaati": "Arrival Time",
   "Sefer_KalkisHavalimaniId": "Departure Airport Name",
   "Sefer_VarisHavalimaniId": "Arrival Airport Name",
+
+  "Person_ID": "ID",
+  "Person_Ad": "Name",
+  "Person_Telefon": "Phone",
+  "Person_Soyad": "Surname",
+  "Person_Doğum_Tarihi": "Birth Date",
+  "Person_Gmail": "Email",
+  "Person_Şifre": "Password",
+  "Person_Tipi": "Type",
+  "Person_Hatırla": "Remember",
 
   //admin layout
   "Flights": "Flights",

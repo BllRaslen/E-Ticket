@@ -1,4 +1,4 @@
-﻿using EfCore2C.Models;
+﻿using web_1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

@@ -1,25 +1,29 @@
-﻿using EfCore2C.Models;
+﻿using web_1.Models;
 using Humanizer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using web_1.Context;
-using web_1.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using web_1.ViewModels;
+
 namespace web_1.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class FirmaController : Controller
     {
         private readonly ApplicationDBContext _context;
+        IWebHostEnvironment _environment;
 
         // Constructor to initialize the controller with the database context
-        public FirmaController(ApplicationDBContext context)
+        public FirmaController(ApplicationDBContext context,IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
+
         }
 
         // GET: FirmaController
@@ -37,37 +41,61 @@ namespace web_1.Controllers
            
             return View();
         }
-
-        // POST: FirmaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Firma firma)
+        public IActionResult Create(FirmaViewsModel firma)
         {
-            // Check if the Firma with the given ID already exists
-            if (FirmaMevcut(firma.firma_id))
+            string filename = "";
+            if (firma.logo != null)
             {
-                TempData["basarsiz_create"] = firma.firma_id + " Zaten Mevcuttur!";
-                return RedirectToAction("Create");
+                string uploadfolder = Path.Combine(_environment.WebRootPath, "images");
+                filename=Guid.NewGuid().ToString()+ "_"+firma.logo.FileName;
+                String filepath=Path.Combine(uploadfolder, filename);   
+                firma.logo.CopyTo(new FileStream(filepath, FileMode.Create)) ;
             }
-            else
-            {
-                // If the ModelState is valid, add the new Firma and save changes
-                if (ModelState.IsValid)
-                {
-                    _context.Firmas.Add(firma);
-                    _context.SaveChanges();
-                    //  HttpContext.Session.SetString("basarli_Firma_create", $"{firma.firma_adi} adlı firma eklendi");
-                    TempData["basarli_Firma_create"] = $"{firma.firma_adi} adlı firma eklendi";
+             var  f =new Firma
+            { firma_adi=firma.firma_adi
+            , firma_id=firma.firma_id,
+            logo=filename
+            };
+            _context.Firmas.Add(f);
+                        _context.SaveChanges();
+                       //  HttpContext.Session.SetString("basarli_Firma_create", $"{firma.firma_adi} adlı firma eklendi");
 
-                    return RedirectToAction(nameof(List));
-                }
+                      return RedirectToAction(nameof(List));
 
-                TempData["basarsiz_create"] = " Ekleme başarısız";
-            }
 
-            // Continue with the save operation if the ID is unique
-            return View(firma);
         }
+        // POST: FirmaController/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Create(Firma firma)
+        //{
+        //    // Check if the Firma with the given ID already exists
+        //    if (FirmaMevcut(firma.firma_id))
+        //    {
+        //        TempData["basarsiz_create"] = firma.firma_id + " Zaten Mevcuttur!";
+        //        return RedirectToAction("Create");
+        //    }
+        //    else
+        //    {
+        //        // If the ModelState is valid, add the new Firma and save changes
+        //        if (ModelState.IsValid)
+        //        {
+        //            _context.Firmas.Add(firma);
+        //            _context.SaveChanges();
+        //            //  HttpContext.Session.SetString("basarli_Firma_create", $"{firma.firma_adi} adlı firma eklendi");
+        //            TempData["basarli_Firma_create"] = $"{firma.firma_adi} adlı firma eklendi";
+
+        //            return RedirectToAction(nameof(List));
+        //        }
+
+        //        TempData["basarsiz_create"] = " Ekleme başarısız";
+        //    }
+
+        //    // Continue with the save operation if the ID is unique
+        //    return View(firma);
+        //}
 
         // Helper method to check if a Firma with a specific ID exists
         private bool FirmaMevcut(int id)
@@ -93,7 +121,6 @@ namespace web_1.Controllers
             }
 
             // Populate ViewData with a SelectList for display in the view
-            ViewData["basarli"] = new SelectList(_context.Firmas, "firma_id", "firma_adi", firma.firma_adi);
             return View(firma);
         }
 

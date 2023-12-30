@@ -40,6 +40,8 @@ namespace web_1.Controllers
             return LocalRedirect(returnUrl);
         }
 
+      
+
 
 
         public IActionResult Index()
@@ -59,10 +61,19 @@ namespace web_1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(HomeModels HomeViewModel)
         {
-         
-            List<kartlarModels> seferData = GetSeferData(Convert.ToInt32(HomeViewModel.selectedKalkisHavalimani), Convert.ToInt32(HomeViewModel.selectedvarisHavalimani),HomeViewModel.selectedTarihi);
+            List<kartlarModels> seferData = GetSeferData(Convert.ToInt32(HomeViewModel.selectedKalkisHavalimani), Convert.ToInt32(HomeViewModel.selectedvarisHavalimani), HomeViewModel.selectedTarihi);
 
-            return View("SeferBilgileri", seferData);
+            if (seferData.Count==0)
+            {
+                return View("SeferYok",seferData);
+
+            }
+            else
+            {
+                return View("SeferBilgileri", seferData);
+
+            }
+
         }
         public List<kartlarModels> GetSeferData(int selectedKalkisHavalimaniId,int selectedVarisHavalimaniId,string tarihi)
         {

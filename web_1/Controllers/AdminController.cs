@@ -49,7 +49,6 @@ namespace web_1.Controllers
             return (_context.Firmas?.Any(e => e.firma_id == id)).GetValueOrDefault();
         }
 
-
         // GET: Kitap/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

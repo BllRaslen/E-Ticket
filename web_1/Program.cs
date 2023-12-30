@@ -45,6 +45,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 var supportedCultures = new[]
 {
         new CultureInfo("en-US"),
+        new CultureInfo("de-DE"),
         new CultureInfo("tr-TR")
 
    
@@ -87,7 +88,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
  
 app.UseRouting();
-var supportedCultures = new[] { "tr-TR" ,"en-US" };
+var supportedCultures = new[] { "tr-TR" ,"en-US", "de-DE" };
 var localizationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture(supportedCultures[0])
     .AddSupportedCultures(supportedCultures)

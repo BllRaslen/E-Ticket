@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>CodePen - Aircraft seats map</title>
-	<link rel="stylesheet" href="./style.css">
-	<link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="~/css/style.css" rel="stylesheet" />
 
 </head>
 
- 
+
 
 
 <body>
@@ -24,17 +24,17 @@
                 <img src="https://i.ibb.co/ftwgLCL/exist.png">
             </div>
             <div class="seats">
-               
 
-                @for (int  i = 0; i < Model.Count()/2; i += 3)
-                    {
-                       
-                        <div class="seats-triple first-line">
-                            @for (int j = i; j < i + 3 && j < Model.Count(); j++)
-                            {
+
+                @for (int i = 0; i < Model.Count() / 2; i += 3)
+                {
+
+                    <div class="seats-triple first-line">
+                        @for (int j = i; j < i + 3 && j < Model.Count(); j++)
+                        {
                             @if (@Model.ElementAt(j).durum)
                             {
-                                <div class="active seat" >
+                                <div class="active seat">
                                     <span>@Model.ElementAt(j).Id</span>
                                 </div>
                             }
@@ -46,18 +46,18 @@
 
                             }
 
-                            }
+                        }
 
-                        </div>
-                    }
+                    </div>
+                }
 
-                  
-        
+
+
             </div>
             <div class="seats">
 
 
-                @for (int i = Model.Count() / 2; i < Model.Count() ; i += 3)
+                @for (int i = Model.Count() / 2; i < Model.Count(); i += 3)
                 {
 
                     <div class="seats-triple first-line">
@@ -69,12 +69,12 @@
                                     <span>@Model.ElementAt(j).Id</span>
                                 </div>
                             }
-                            else 
+                            else
                             {
                                 <div class="seat" onclick="setSelectedSeat('@Model.ElementAt(j).Id')">
                                     <span>@Model.ElementAt(j).Id</span>
                                 </div>
-                                
+
                             }
                         }
 
@@ -84,9 +84,9 @@
 
 
             </div>
-        
-            
-      
+
+
+
             <div class="bottom-left-exists">
                 <img src="https://i.ibb.co/ftwgLCL/exist.png">
             </div>
@@ -137,14 +137,14 @@
 
             seats.forEach(function (seat) {
                 seat.addEventListener("click", function () {
-                
+
                     if (!seat.classList.contains("empty")) {
-                    
+
                         seats.forEach(function (s) {
                             s.classList.remove("active");
                         });
 
-                     
+
                         seat.classList.add("active");
                     }
                 });
@@ -159,7 +159,7 @@
             if (activeSeat) {
                 var selectedSeatId = activeSeat.querySelector("span").innerText;
                 // Add logic to handle the selected seat ID, for example, redirect to SaveSelectedSeat action
-                window.location.href = "/Home/SaveSelectedSeat?seatId=" + selectedSeatId;
+                window.location.href = "/Odeme/ode?id=" + selectedSeatId;
             } else {
                 alert("Please select a seat before saving.");
             }
@@ -167,9 +167,9 @@
 
     </script>
 
-   
- 
-  
+
+
+
 
 </body>
 </html>

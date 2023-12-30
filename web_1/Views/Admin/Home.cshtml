@@ -1,12 +1,63 @@
-﻿
-@{
+﻿@{
     Layout = "_AdminLayout";
-    
-    
+
+
 }
 
 
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Admin Panel</h1>
-<a href="../Views/Error404.cshtml">kkjkj</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Chart Examples</title>
+    <style>
+        .chart-container {
+            max-width: 600px;
+        }
+    </style>
+</head>
 
+<body>
+
+    -
+
+    -
+
+    <!-- Bar Chart -->
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <script>
+        const barChartConfig = {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const barChartCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barChartCtx, barChartConfig);
+    </script>
+
+    <!-- Doughnut Chart -->
+    -
+
+</body>
+
+</html>
